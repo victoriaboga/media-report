@@ -1,4 +1,7 @@
-.idea
-*.DS_Store
-
+bower_components
+build
+coverage
+dist
 node_modules
+npm-debug.log
+.DS_Store
