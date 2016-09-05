@@ -1,41 +1,35 @@
 {
-  "name": "es6-karma-jasmine-webpack-boilerplate",
+  "name": "AggregatedTableMod",
   "version": "0.2.0",
-  "description": "Boilerplate for ES6 client-based library. Uses Babel and webpack for transpiling and building, Karma and Jasmine for unit testing, and Istanbul/Isparta for code coverage.",
-  "main": "dist/calculator.js",
+  "description": "Reportal Module for Aggregated Table",
+  "main": "bundle.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zyml/es6-karma-jasmine-webpack-boilerplate"
+    "url": "https://github.com/ConfirmitASA/repmod-aggregated-table.git"
   },
   "scripts": {
-    "build": "npm run clean && npm run build:dev && npm run build:prd",
-    "build:dev": "webpack src/Calculator.js dist/calculator.js --config tools/webpack.config.dev.js",
-    "build:prd": "webpack src/Calculator.js dist/calculator.min.js --config tools/webpack.config.prd.js",
-    "prepublish": "npm run build",
+    "build": "npm run clean && npm run build:prd",
+    "build:dev": "node_modules/.bin/webpack --config tools/webpack.config.dev.js --progress --colors",
+    "build:prd": "node_modules/.bin/webpack --config tools/webpack.config.prd.js --progress --colors",
     "clean": "rimraf dist build",
     "lint": "eslint src",
+    "docs": "node_modules/.bin/jsdoc --configure jsdoc.conf --verbose",
+    "docs-commit": "git subtree push --prefix docs/AggregatedTableMod origin gh-pages",
     "test": "karma start --single-run --no-auto-watch karma.config.js"
   },
   "keywords": [
-    "es6",
-    "babel",
-    "webpack",
-    "jasmine",
-    "karma",
-    "istanbul",
-    "boilerplate"
   ],
-  "author": "Melvin Lee (http://www.zy.sg/)",
-  "license": "MIT",
+  "author": "ConfirmitASA",
+  "license": "",
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-eslint": "^4.1.6",
     "babel-istanbul": "^0.6.0",
     "babel-istanbul-loader": "0.0.1",
-    "babel-loader": "^6.2.1",
+    "babel-loader": "^6.2.4",
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-plugin-istanbul": "^2.0.1",
-    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-es2015": "^6.9.0",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^3.1.0",
     "jasmine-core": "^2.4.1",
@@ -47,6 +41,17 @@
     "karma-webpack": "^1.7.0",
     "loader-utils": "^0.2.12",
     "rimraf": "^2.5.0",
-    "webpack": "^1.12.11"
+    "css-loader": "^0.23.1",
+    "docdash": "^0.4.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "postcss": "^5.0.21",
+    "postcss-apply": "^0.2.0",
+    "postcss-cssnext": "^2.6.0",
+    "postcss-import": "^8.1.2",
+    "postcss-inline-svg": "trysound/postcss-inline-svg",
+    "postcss-loader": "^0.9.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "jsdoc": "^3.4.0"
   }
 }

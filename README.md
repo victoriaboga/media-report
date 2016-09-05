@@ -8,11 +8,25 @@ Boilerplate for building a client-based JavaScript library in ES6 using the foll
 * [webpack](https://webpack.github.io/)
 * [Jasmine](http://jasmine.github.io/)
 * [Karma](http://karma-runner.github.io/)
-* [babel-istanbul](https://github.com/ambitioninc/babel-istanbul)
+* babel-plugin-istanbul
 * [ESLint](http://eslint.org/) with [eslint-config-airbnb](https://github.com/airbnb/javascript)
+* PostCSS with Autoprefixer (for autoprefixing vendors), includes and CSSnext (for css custom-properties etc.) and cssnano (for CSS minification)
+* JSDoc3 to auto-generate JSDoc documentation for JS that uses JSDoc comment syntax.
 
 
-## Credits
-* https://medium.com/@gunnarlium/es6-code-coverage-with-babel-jspm-karma-jasmine-and-istanbul-2c1918c5bb23
-* https://github.com/mvader/react-es6-webpack-karma-boilerplate
-* https://github.com/rackt/redux
+##SRC
+
+`./src` folder must contain one `.js` file and one `.css` file that have their name matching to that specified in `package.json -> name`.
+These two files are the ones that import content (via `require("path/to/module.js")` and via `@import "path/to/module.css";`) from other files located in the same folder/nested folders (if you need several files with classes)
+or act as the only js/css files for the module.
+
+### Commands (configured in package.json)
+
+- `npm install` installs all dependencies of the project
+- `npm run build:prd` generates minified build files under `/dist` folder 
+- `npm run build:dev` generates build files under `/dist` folder and starts watching all changes made to the project during this session, appending them to the build files
+- `npm test` Runs tests that have been written and put into `/src/__tests__` folder. (Note: test should follow name convention: `NameOfClass-test.js` which is a test for `NameOfFile.js`)
+- `npm run lint` Lints your JavaScript code placed in src folder.
+- `npm run docs` generates documentation for your project .js files that use JSDoc3 comments and puls them into `docs` folder
+- `npm run docs-commit`  publishes documentation to `http://ConfirmitASA.github.io/[RepoName]/[version]/` where `[RepoName]` is name of your repository as well as name specified in `package.json -> name` AND `[version]` is the version in your `package.json`. 
+Please make sure you have the `npm run docs-commit` command configured properly with the correct name of repo to be used there.
