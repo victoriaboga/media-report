@@ -1,3 +1,5 @@
 {
-  "extends": "./shared/.eslintrc"
+  "extends": "airbnb/base",
+  "rules": {
+  }
 }

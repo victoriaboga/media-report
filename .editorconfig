@@ -1,25 +1,20 @@
-# EditorConfig is awesome: http://EditorConfig.org
+# EditorConfig helps developers define and maintain consistent
+# coding styles between different editors and IDEs
+# http://editorconfig.org
 
-# top-most EditorConfig file
 root = true
 
-# all files
 [*]
-end_of_line = lf
-insert_final_newline = true
+
+# Change these settings to your own preference
 indent_style = space
 indent_size = 2
+
+# We recommend you to keep these unchanged
+end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
-max_line_length = 120
+insert_final_newline = true
 
-[*.js]
-quote_type = single
-curly_bracket_next_line = false
-spaces_around_operators = true
-spaces_around_brackets = inside
-indent_brace_style = BSD KNF
-
-# HTML
-[*.html]
-quote_type = double
+[*.md]
+trim_trailing_whitespace = false

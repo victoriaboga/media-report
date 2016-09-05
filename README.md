@@ -1,112 +1,32 @@
-# kcd-common-tools
+# ES6 Karma Jasmine Webpack Boilerplate
 
-Common build tools for projects by Kent C. Dodds
+_No Grunt/Gulp required!_
 
-## Init tasks
+Boilerplate for building a client-based JavaScript library in ES6 using the following components:
 
-This still needs a little bit of work, but here's some stuff you may want to do when starting a project with
-kcd-common-tools:
+* [Babel](https://babeljs.io/)
+* [webpack](https://webpack.github.io/)
+* [Jasmine](http://jasmine.github.io/)
+* [Karma](http://karma-runner.github.io/)
+* babel-plugin-istanbul
+* [ESLint](http://eslint.org/) with [eslint-config-airbnb](https://github.com/airbnb/javascript)
+* PostCSS with Autoprefixer (for autoprefixing vendors), includes and CSSnext (for css custom-properties etc.) and cssnano (for CSS minification)
+* JSDoc3 to auto-generate JSDoc documentation for JS that uses JSDoc comment syntax.
 
-### Install dependencies:
 
-```
-npm i -D kcd-common-tools@1.0.0-beta.10 webpack webpack-dev-server karma karma-chai karma-mocha istanbul isparta karma-chrome-launcher karma-firefox-launcher babel babel-core babel-loader node-libs-browser mocha chai with-package sinon uglify-loader lodash karma-webpack karma-sinon sinon isparta-loader ghooks eslint eslint-loader codecov.io babel-eslint angular-mocks angular
-```
+##SRC
 
-### Copy files and create symlinks
+`./src` folder must contain one `.js` file and one `.css` file that have their name matching to that specified in `package.json -> name`.
+These two files are the ones that import content (via `require("path/to/module.js")` and via `@import "path/to/module.css";`) from other files located in the same folder/nested folders (if you need several files with classes)
+or act as the only js/css files for the module.
 
-Note, this happens as part of the installation of `kcd-common-tools`
+### Commands (configured in package.json)
 
-```
-ln -s node_modules/kcd-common-tools/shared/link/editorconfig .editorconfig && ln -s node_modules/kcd-common-tools/shared/link/eslintignore .eslintignore && ln -s node_modules/kcd-common-tools/shared/link/gitignore .gitignore && ln -s node_modules/kcd-common-tools/shared/link/npmignore .npmignore
-cp node_modules/kcd-common-tools/shared/copy/* .
-```
-
-### Create webpack & karma overrides
-
-Overrides exist in the `package.json` under the property `kcdCommon`. They can either be overrides themselves or point
-to a file which contains the overrides. Examples of overrides:
-
-#### Directly in package.json
-
-```json
-{
-  "kcdCommon": {
-    "webpack": {
-      "output": { "library": "myLib" }
-    },
-    "karma": {
-      "autoWatchBatchDelay": 300
-    }
-  }
-}
-```
-
-#### As file
-
-```json
-{
-  "kcdCommon": {
-    "webpack": "scripts/webpack-overrides.js",
-    "karma": "scripts/karma-overrides.js"
-  }
-}
-```
-
-#### Forms of Overrides
-
-Overrides can take several forms. You can have it be an object that is deep merged with the defaults for all
-environments. You can also nest overrides based on environment and have the overrides apply only for a particular
-NODE_ENV. For example:
-
-```json
-{
-  "webpack": {
-    "development": {
-    },
-    "test": {
-    },
-    "production": {
-    }
-  }
-}
-```
-
-Also, if you put your overrides in a separate file, you can make your overrides be a function which returns the
-resulting configuration (you manage merging yourself in this case). For example:
-
-```javascript
-var _ = require('lodash');
-module.exports = webpackOverrides;
-
-function webpackOverrides(defaultConfig) {
-  var newConfig = _.cloneDeep(defaultConfig);
-  // modifications
-  return newConfig;
-}
-```
-
-### Create scripts
-
-Here are some handy scripts you may want to have:
-
-```json
-{
-  "scripts": {
-    "build:dev": "NODE_ENV=development webpack --config node_modules/kcd-common-tools/shared/webpack.config.js --progress --colors",
-    "build:prod": "NODE_ENV=production webpack --config node_modules/kcd-common-tools/shared/webpack.config.js --progress --colors",
-    "build": "npm run build:dev & npm run build:prod",
-    "check-coverage": "./node_modules/istanbul/lib/cli.js check-coverage --statements 80 --functions 80 --lines 80 --branches 80",
-    "ci": "npm run eslint && npm run test:single && npm run check-coverage && npm run build",
-    "eslint": "eslint src/ -c node_modules/kcd-common-tools/shared/test.eslintrc",
-    "release": "npm run build && with-package git commit -am pkg.version && with-package git tag pkg.version && git push && npm publish && git push --tags",
-    "release:beta": "npm run release && npm run tag:beta",
-    "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "start": "npm run test",
-    "test": "COVERAGE=true NODE_ENV=test karma start",
-    "test:single": "COVERAGE=true NODE_ENV=test karma start --single-run",
-    "test:debug": "NODE_ENV=test karma start --browsers Chrome",
-    "tag:beta": "with-package npm dist-tag add pkg.name@pkg.version beta"
-  }
-}
-```
+- `npm install` installs all dependencies of the project
+- `npm run build:prd` generates minified build files under `/dist` folder 
+- `npm run build:dev` generates build files under `/dist` folder and starts watching all changes made to the project during this session, appending them to the build files
+- `npm test` Runs tests that have been written and put into `/src/__tests__` folder. (Note: test should follow name convention: `NameOfClass-test.js` which is a test for `NameOfFile.js`)
+- `npm run lint` Lints your JavaScript code placed in src folder.
+- `npm run docs` generates documentation for your project .js files that use JSDoc3 comments and puls them into `docs` folder
+- `npm run docs-commit`  publishes documentation to `http://ConfirmitASA.github.io/[RepoName]/[version]/` where `[RepoName]` is name of your repository as well as name specified in `package.json -> name` AND `[version]` is the version in your `package.json`. 
+Please make sure you have the `npm run docs-commit` command configured properly with the correct name of repo to be used there.

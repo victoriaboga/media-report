@@ -1,47 +1,57 @@
 {
-  "name": "kcd-common-tools",
-  "version": "1.0.0-beta.23",
-  "description": "Common build tools for projects by Kent C. Dodds",
-  "main": "index.js",
-  "dependencies": {
-    "async": "1.4.2",
-    "chai": "3.3.0",
-    "chalk": "1.0.0",
-    "eslint": "1.5.1",
-    "glob": "5.0.15",
-    "karma": "0.12.35",
-    "karma-chai": "0.1.0",
-    "karma-chrome-launcher": "0.1.12",
-    "karma-coverage": "0.3.1",
-    "karma-firefox-launcher": "0.1.6",
-    "karma-mocha": "0.1.10",
-    "karma-sinon": "1.0.4",
-    "karma-webpack": "1.7.0",
-    "lodash": "3.10.1",
-    "mocha": "2.3.3",
-    "node-libs-browser": "0.5.2",
-    "sinon": "1.15.3",
-    "webpack": "1.9.10",
-    "webpack-notifier": "1.2.1",
-    "with-package": "0.2.0"
-  },
-  "scripts": {
-    "setup": "bash utils/postinstall.sh",
-    "release": "with-package git commit -am pkg.version && with-package git tag pkg.version && git push && npm publish && git push --tags",
-    "release:beta": "npm run release && npm run tag:beta",
-    "tag:beta": "with-package npm dist-tag add pkg.name@pkg.version beta"
-  },
+  "name": "AggregatedTableMod",
+  "version": "0.2.0",
+  "description": "Reportal Module for Aggregated Table",
+  "main": "bundle.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kentcdodds/kcd-common-tools"
+    "url": "https://github.com/ConfirmitASA/repmod-aggregated-table.git"
   },
-  "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/kentcdodds/kcd-common-tools/issues"
+  "scripts": {
+    "build": "npm run clean && npm run build:prd",
+    "build:dev": "node_modules/.bin/webpack --config tools/webpack.config.dev.js --progress --colors",
+    "build:prd": "node_modules/.bin/webpack --config tools/webpack.config.prd.js --progress --colors",
+    "clean": "rimraf dist build",
+    "lint": "eslint src",
+    "docs": "node_modules/.bin/jsdoc --configure jsdoc.conf --verbose",
+    "docs-commit": "git subtree push --prefix docs/AggregatedTableMod origin gh-pages",
+    "test": "karma start --single-run --no-auto-watch karma.config.js"
   },
-  "homepage": "https://github.com/kentcdodds/kcd-common-tools",
+  "keywords": [
+  ],
+  "author": "ConfirmitASA",
+  "license": "",
   "devDependencies": {
-    "eslint-plugin-mocha": "0.4.0"
+    "babel-core": "^6.4.0",
+    "babel-eslint": "^4.1.6",
+    "babel-istanbul": "^0.6.0",
+    "babel-istanbul-loader": "0.0.1",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-plugin-istanbul": "^2.0.1",
+    "babel-preset-es2015": "^6.9.0",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^3.1.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.3",
+    "karma-jasmine": "^0.3.6",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
+    "loader-utils": "^0.2.12",
+    "rimraf": "^2.5.0",
+    "css-loader": "^0.23.1",
+    "docdash": "^0.4.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "postcss": "^5.0.21",
+    "postcss-apply": "^0.2.0",
+    "postcss-cssnext": "^2.6.0",
+    "postcss-import": "^8.1.2",
+    "postcss-inline-svg": "trysound/postcss-inline-svg",
+    "postcss-loader": "^0.9.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "jsdoc": "^3.4.0"
   }
 }
