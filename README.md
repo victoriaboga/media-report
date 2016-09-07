@@ -16,8 +16,9 @@ Boilerplate for building a client-based JavaScript library in ES6 using the foll
 
 ##SRC
 
-`./src` folder must contain one `.js` file and one `.css` file that have their name matching to that specified in `package.json -> name`.
-These two files are the ones that import content (via `require("path/to/module.js")` and via `@import "path/to/module.css";`) from other files located in the same folder/nested folders (if you need several files with classes)
+`./src` folder must contain at least `main.js` file. There you may write your code, but preferably write it in other files that are named according to their main Class and import them into main.js
+If you have a `.css` file that need to be included, import it into the top of `main.js` file via `require("./file/path/relative/to/main/js/file/styles.css")` which may include imports of other css files via `@import "./path/to/file.css"`. This `.css` file will be run through PostCSS.
+These two files are the ones that import content (via `require("path/to/module.js")` or `import ClassName from "./class/path/ClassName.js"` and via `@import "path/to/module.css";`) from other files located in the same folder/nested folders (if you need several files with classes)
 or act as the only js/css files for the module.
 
 ### Commands (configured in package.json)
@@ -27,6 +28,6 @@ or act as the only js/css files for the module.
 - `npm run build:dev` generates build files under `/dist` folder and starts watching all changes made to the project during this session, appending them to the build files
 - `npm test` Runs tests that have been written and put into `/src/__tests__` folder. (Note: test should follow name convention: `NameOfClass-test.js` which is a test for `NameOfFile.js`)
 - `npm run lint` Lints your JavaScript code placed in src folder.
-- `npm run docs` generates documentation for your project .js files that use JSDoc3 comments and puls them into `docs` folder
+- `npm run docs` generates documentation for your project `.js` files that use JSDoc3 comments and puls them into `docs` folder
 - `npm run docs-commit`  publishes documentation to `http://ConfirmitASA.github.io/[RepoName]/[version]/` where `[RepoName]` is name of your repository as well as name specified in `package.json -> name` AND `[version]` is the version in your `package.json`. 
 Please make sure you have the `npm run docs-commit` command configured properly with the correct name of repo to be used there.

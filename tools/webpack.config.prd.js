@@ -7,7 +7,7 @@ const AUTOPREFIXER_BROWSERS = [
   'Android >= 4',
   'Chrome >= 32',
   'Firefox >= 28',
-  'Explorer >= 9',
+  'Explorer >= 10',
   'iOS >= 7',
   'Opera >= 12',
   'Safari >= 7.1'
@@ -42,7 +42,7 @@ config.postcss =  function (webpack) {
     require("postcss-cssnext")({
       browsers:AUTOPREFIXER_BROWSERS
     }),
-    //require('cssnano')()
+    require('cssnano')()
   ];
 }
 
