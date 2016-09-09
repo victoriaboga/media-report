@@ -13,7 +13,8 @@ module.exports = function (config) {
       'tests.webpack.js',
     ],
     frameworks: [
-      'jasmine',
+      'jasmine-ajax',
+      'jasmine'
     ],
     preprocessors: {
       'tests.webpack.js': ['webpack', 'sourcemap'],
