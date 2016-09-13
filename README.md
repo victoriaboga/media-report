@@ -23,7 +23,7 @@ or act as the only js/css files for the module.
 If you plan to write tests using fixtures ([using Jasmine-jquery](https://github.com/velesin/jasmine-jquery) with [karma-jasmine-jquery](https://github.com/bessdsv/karma-jasmine-jquery)) (both shipped in this bundle)
 put your fixtures under `/src/__tests__/fixtures/fixtureFile.html`  (which would contain the code of your fixture omitting `<html>` and `<body>` tags) or `/src/__tests__/fixtures/fixtureFile.json`. In your tests you need to include the fixture and then you'll be able to reference any HTML tags by jquery selectors via `$j('.someSelector')` like below:
 
-```
+```javascript
 describe('Fixture example', () => {
 
   beforeEach(()=>{ // or beforeAll()
