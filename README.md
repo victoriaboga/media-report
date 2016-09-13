@@ -20,6 +20,25 @@ Boilerplate for building a client-based JavaScript library in ES6 using the foll
 If you have a `.css` file that need to be included, import it into the top of `main.js` file via `require("./file/path/relative/to/main/js/file/styles.css")` which may include imports of other css files via `@import "./path/to/file.css"`. This `.css` file will be run through PostCSS.
 These two files are the ones that import content (via `require("path/to/module.js")` or `import ClassName from "./class/path/ClassName.js"` and via `@import "path/to/module.css";`) from other files located in the same folder/nested folders (if you need several files with classes)
 or act as the only js/css files for the module.
+If you plan to write tests using fixtures ([using Jasmine-jquery](https://github.com/velesin/jasmine-jquery) with [karma-jasmine-jquery](https://github.com/bessdsv/karma-jasmine-jquery)) (both shipped in this bundle)
+put your fixtures under `/src/__tests__/fixtures/fixtureFile.html`  (which would contain the code of your fixture omitting `<html>` and `<body>` tags) or `/src/__tests__/fixtures/fixtureFile.json`. In your tests you need to include the fixture and then you'll be able to reference any HTML tags by jquery selectors via `$j('.someSelector')` like below:
+
+```
+describe('Fixture example', () => {
+
+  beforeEach(()=>{ // or beforeAll()
+    jasmine.getFixtures().fixturesPath = 'base/src/__tests__/fixtures'; // do not change this line, it's pointing to the correct folder with fixtures 
+    loadFixtures('table-nested-headers.html'); // use this file as a fixture
+  });
+
+  it('can tests if the fixture loaded', () => {
+    expect($j('#confirmit_agg_table')).toExist();
+  });
+});
+
+```
+
+To make use of the fixtures please refer to [Jasmine-jquery API documentation](https://github.com/velesin/jasmine-jquery)
 
 ### Commands (configured in package.json)
 
