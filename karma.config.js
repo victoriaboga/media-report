@@ -7,6 +7,7 @@ module.exports = function (config) {
       reporters: [
         { type: 'html', subdir: 'html' },
         { type: 'lcovonly', subdir: '.' },
+        {type:'json', subdir: '.'},
       ],
     },
     files: [
