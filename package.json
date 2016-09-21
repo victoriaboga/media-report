@@ -55,6 +55,7 @@
     "postcss-cssnext": "^2.6.0",
     "postcss-import": "^8.1.2",
     "postcss-inline-svg": "trysound/postcss-inline-svg",
+    "r-visual-fixture-test": "github:confirmitasa/r-visual-fixture-test",
     "postcss-loader": "^0.9.1",
     "rimraf": "^2.5.0",
     "style-loader": "^0.13.1",
