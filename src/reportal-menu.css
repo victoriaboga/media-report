@@ -1,0 +1,35 @@
+.mainMenu{
+  padding-left:56px;
+  padding-right:56px;
+}
+.yui3-menu{
+  background:none;
+  padding:0;
+  overflow: visible;
+  text-align:center;
+}
+.yui3-menu .css-menu-topitem{
+  border:0 !important;
+  background:none;
+  border-radius:var(--border-radius) !important;
+  box-shadow:none;
+  padding: 0;
+  margin: 0 8px;
+}
+.yui3-menu .css-menu-selected, .yui3-menu .css-menu-topitem:hover{
+  background:var(--primary-background-color) !important;
+  text-decoration:none !important;
+}
+.yui3-menu ul.reportal-clearfix{
+  display:inline-block;
+}
+.yui3-menu .css-menu-toplabel {
+  background:transparent !important;
+  text-shadow:none;
+  border-radius:var(--border-radius) !important;
+  color: rgba(18,24,33,0.87);
+  padding:0 8px;
+}
+.yui3-menu .css-menu-selected .css-menu-toplabel {
+  font-weight:600;
+}
