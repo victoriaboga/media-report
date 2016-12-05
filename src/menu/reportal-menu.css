@@ -1,0 +1,39 @@
+.mainMenu{
+  padding-left:56px;
+  padding-right:56px;
+}
+.mainMenu>.yui3-menu{
+  background:none;
+  padding:0;
+  overflow: visible;
+  text-align:center;
+
+  & .css-menu-topitem{
+    border:0 !important;
+    background:none;
+    border-radius:var(--border-radius) !important;
+    box-shadow:none;
+    padding: 0;
+    margin: 0 8px;
+
+    &:hover,
+    &.css-menu-selected{
+      background:var(--primary-background-color) !important;
+      text-decoration:none !important;
+
+      & .css-menu-toplabel {
+        font-weight:600;
+      }
+    }
+  }
+  & ul.reportal-clearfix{
+    display:inline-block;
+  }
+  &  .css-menu-toplabel {
+    background:transparent !important;
+    text-shadow:none;
+    border-radius:var(--border-radius) !important;
+    color: rgba(18,24,33,0.87);
+    padding:0 8px;
+  }
+}

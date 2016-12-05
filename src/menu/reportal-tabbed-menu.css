@@ -1,0 +1,91 @@
+.reportal-tabbed-menu>.yui3-menu{
+  background:transparent;
+  padding-left:16px;
+  padding-top:8px;
+  margin:0;
+
+  & a, & a:hover{text-decoration:none}
+
+  & li.css-menu-topitem{
+    margin: 0 8px 0 0 !important;
+    border:0;
+    background:none;
+    box-shadow:none;
+    border-radius:0;
+
+    &>a{
+      color: white;
+      text-shadow:none;
+      text-decoration:none;
+      text-transform:uppercase;
+      border-bottom:3px solid transparent;
+    }
+
+    &:hover,
+    &.yui3-menuitem-active,
+    &.css-menu-selected,
+    &.css-menu-child-selected{
+      background:rgba(255,255,255,0.2);
+      text-decoration:none;
+    }
+
+    &.yui3-menuitem-active>a,
+    &>a.yui3-menu-label-menuvisible{
+      color:#fff !important;
+      text-decoration:none;
+      background:transparent;
+    }
+
+    &.css-menu-selected>a,
+    &.css-menu-child-selected>a{
+      background:transparent !important;
+      border-color:var(--default-primary-color);
+      color:#fff;
+    }
+  }
+
+  & .yui3-menu-label{
+    background-image: url(data:image/svg+xml,%3Csvg%20fill%3D%22%23ffffff%22%20height%3D%2218%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2218%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M7.41%207.84L12%2012.42l4.59-4.58L18%209.25l-6%206-6-6z%22/%3E%3C/svg%3E) !important;
+    background-repeat: no-repeat !important;
+    background-position: center right !important;
+    &.css-menu-toplabel{
+      padding-right: 20px;
+    }
+  }
+
+  & .css-menu-submenu{
+    border:0;
+    min-width: 168px;
+    padding:0;
+    border-radius:var(--border-radius);
+    @apply(--shadow-elevation-4dp);
+  }
+  & .css-menu-subitem{
+    margin:0;
+    &>a{
+      line-height: 40px;
+      padding: 0 16px !important;
+      color: var(--primary-text-color);
+      background:none;
+      &.yui3-menu-label{
+        padding-right: 24px;
+        background-image: url(data:image/svg+xml,%3Csvg%20fill%3D%22%23121821%22%20height%3D%2218%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2218%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M8.59%2016.34l4.58-4.59-4.58-4.59L10%205.75l6%206-6%206z%22/%3E%3C/svg%3E) !important;
+      }
+    }
+    &.yui3-menuitem-active,
+    &.yui3-menu-label-active{
+      background-color: var(--default-primary-color) !important;
+      &>a{
+        text-decoration: none;
+        background:none;
+        color: var(--text-primary-color);
+      }
+    }
+    &>.yui3-menu-label.css-menu-sublabel:hover{
+      background-color:var(--default-primary-color) !important;
+      background-image: url(data:image/svg+xml,%3Csvg%20fill%3D%22%23ffffff%22%20height%3D%2218%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2218%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M8.59%2016.34l4.58-4.59-4.58-4.59L10%205.75l6%206-6%206z%22/%3E%3C/svg%3E) !important;
+
+    }
+
+  }
+}

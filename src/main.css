@@ -7,8 +7,15 @@
 @import "../node_modules/flexboxLayout/src/flex-alignment.css";
 @import "../node_modules/flexboxLayout/src/flex-factors.css";
 @import "../node_modules/flexboxLayout/src/positioning.css";
-@import "admin-menu.css";
-@import "reportal-menu.css";
+
+@import "paper-styles/global.css";
+
+@import "menu/admin-menu.css";
+@import "menu/reportal-menu.css";
+@import "menu/reportal-tabbed-menu.css";
+
+@import "side-nav/styles.css";
+
 @import "viewer-presentation.css";
 
 /* layout styles*/
