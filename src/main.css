@@ -17,6 +17,8 @@
 @import "side-nav/styles.css";
 
 @import "viewer-presentation.css";
+@import "paper-styles/page-card-title.css";
+
 
 /* layout styles*/
 * {
@@ -43,7 +45,7 @@ body{
   margin:0;
   height:100vh;
   min-width:100% !important;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 .r2dashboard{
   width:100%;

@@ -1,3 +1,5 @@
+
+/*Requires ReportalNavigator to be set to gray horizontal tabs*/
 .reportal-tabbed-menu>.yui3-menu{
   background:transparent;
   padding-left:16px;
@@ -67,6 +69,7 @@
       padding: 0 16px !important;
       color: var(--primary-text-color);
       background:none;
+      text-transform: none;
       &.yui3-menu-label{
         padding-right: 24px;
         background-image: url(data:image/svg+xml,%3Csvg%20fill%3D%22%23121821%22%20height%3D%2218%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2218%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M8.59%2016.34l4.58-4.59-4.58-4.59L10%205.75l6%206-6%206z%22/%3E%3C/svg%3E) !important;
@@ -84,7 +87,6 @@
     &>.yui3-menu-label.css-menu-sublabel:hover{
       background-color:var(--default-primary-color) !important;
       background-image: url(data:image/svg+xml,%3Csvg%20fill%3D%22%23ffffff%22%20height%3D%2218%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2218%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M8.59%2016.34l4.58-4.59-4.58-4.59L10%205.75l6%206-6%206z%22/%3E%3C/svg%3E) !important;
-
     }
 
   }
