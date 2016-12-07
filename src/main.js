@@ -1,4 +1,5 @@
 require('./main.css');
+import MDHierarchy from "./hierarchy/hierarchy";
 
 export default class HeaderScroller{
   constructor(win,header){
@@ -54,6 +55,7 @@ export default class HeaderScroller{
 }
 
 window.addEventListener('DOMContentLoaded',()=>{
+    let h = new MDHierarchy(); //setup listeners for hierarchy component on open and scrim click
   let r2 = document.querySelector('.r2dashboard');
   if(r2){
     r2.addEventListener('load',(e)=>{

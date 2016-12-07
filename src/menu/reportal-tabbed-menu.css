@@ -64,6 +64,10 @@
   }
   & .css-menu-subitem{
     margin:0;
+    &.css-menu-selected>a{
+      background-color: var(--default-primary-color) !important;
+      color: var(--primary-text-color) !important;
+    }
     &>a{
       line-height: 40px;
       padding: 0 16px !important;

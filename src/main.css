@@ -9,6 +9,8 @@
 @import "../node_modules/flexboxLayout/src/positioning.css";
 
 @import "paper-styles/global.css";
+@import "hierarchy/hierarchy.css";
+
 
 @import "menu/admin-menu.css";
 @import "menu/reportal-menu.css";
