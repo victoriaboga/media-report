@@ -40,7 +40,7 @@
 
     &.css-menu-selected>a,
     &.css-menu-child-selected>a{
-      background:transparent !important;
+      background-color:transparent !important;
       border-color:var(--default-primary-color);
       color:#fff;
     }

@@ -28,7 +28,7 @@
 
 /*card styles*/
 .material-card{
-  min-width: 160px;
+  min-width: 250px;
   overflow: hidden;
   @apply(--layout-vertical);
   position:relative;
@@ -40,7 +40,7 @@
 
   &--title{
     padding:16px;
-    &[class*=icon]{
+    &[class*=icon-]{
       padding-left:56px;
       background-position: 16px center !important;
     }
@@ -57,7 +57,7 @@
     }
   }
   &--content{
-    padding:16px;
+    padding:8px 16px;
     padding-top:0;
     &--secondary{
       opacity:0.5;
@@ -69,33 +69,70 @@
         vertical-align:middle;
       }
     }
+    & ~ &--actions{
+      padding-top:0;
+    }
+  }
+  &--actions{
+    @apply(--layout-horizontal);
+    @apply(--layout-wrap);
+    padding:8px;
+
   }
 }
 
-.icon-update{
+[class*="icon-"]{
   @apply(--icon-mixin);
+}
+.icon-update{
   background-image: var(--icon-update);
 }
 .icon-timeline{
-  @apply(--icon-mixin);
   background-image: var(--icon-timeline);
 }
 .icon-thumbs-up-down{
-  @apply(--icon-mixin);
   background-image: var(--icon-thumbs-up-down);
 }
 .icon-group-add{
-  @apply(--icon-mixin);
   background-image: var(--icon-group-add);
 }
 .icon-gps-fixed{
-  @apply(--icon-mixin);
   background-image: var(--icon-gps-fixed);
+}
+.icon-multiline-chart{
+  background-image: var(--icon-multiline-chart);
+}
+.icon-report{
+  background-image: var(--icon-report);
+}
+.icon-info-outline{
+  background-image: var(--icon-info-outline);
+}
+.icon-profile-circle{
+  background-image: var(--icon-profile-circle);
 }
 
 
+/*button mixin*/
+.reportal-button{
+  @apply(--reportal-button);
+  @apply(--shadow-transition);
+  text-transform: uppercase;
+  color: var(--primary-text-color) !important;
+  text-decoration:none !important;
+  box-shadow:0;
+  &:hover{
+    color:var(--primary-text-color) !important;
+    @apply(--shadow-elevation-2dp);
+  }
+  &[class*=icon-]{
+    padding-left:40px;
+    background-position: 8px center !important;
+  }
+}
+
 /*kpi digit*/
-table.kpi-digit td, .kpi-digit{
+table.kpi-digit td:not([class*="_chc"]), .kpi-digit{
   padding: 0 !important;
   margin: 0 !important;
   height: auto !important;
@@ -154,6 +191,7 @@ table.kpi-digit td, .kpi-digit{
   & .fc-filter-title{
     color: var(--secondary-text-color)  !important;
     margin: 0 !important;
+    font-weight:bold;
   }
 
 }
