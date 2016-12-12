@@ -16,6 +16,8 @@
 @import "menu/reportal-menu.css";
 @import "menu/reportal-tabbed-menu.css";
 
+@import "reportal-inputs/reportal-select.css";
+
 @import "side-nav/styles.css";
 
 @import "viewer-presentation.css";

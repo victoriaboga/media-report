@@ -191,7 +191,7 @@ table.kpi-digit td:not([class*="_chc"]), .kpi-digit{
   & .fc-filter-title{
     color: var(--secondary-text-color)  !important;
     margin: 0 !important;
-    font-weight:bold;
+    font-weight:500 !important;
   }
 
 }

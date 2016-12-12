@@ -1,0 +1,22 @@
+.reportal-checkbox, .reportal-radio, .reportal-select, .reportal-input, .reportal-datepicker{
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: var(--reportal-list-margin);
+    margin-top:0;
+
+
+    & > * {
+      display: block;
+    }
+
+    & > label {
+      font-size: inherit;
+      color:var(--secondary-text-color);
+      padding: 0;
+      padding-top: 8px;
+      font-family:inherit;
+      font-weight:500 !important;
+      margin:0 !important;
+    }
+}

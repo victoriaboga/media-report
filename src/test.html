@@ -6,77 +6,64 @@
 </head>
 <body>
 
+
+
 <div class="pageContent layout vertical">
 
-  <div class="material-section--title">Comment Themes</div>
+  <div class="material-section--title">Category Sentiment Analysis</div>
+
   <div class="layout horizontal wrap material-section">
 
-    <div class="material-card flex" style="min-width:480px">
-      <div class="material-card--content layout vertical" style="padding-top:24px; padding-bottom:16px">
-        <confirmit:wysiwygcomponent type="ChartDataDef" id="daf4ac78-bf2d-4ec9-914a-ec52e997f7bd" /><confirmit:wysiwygcomponent type="AggregatedTable" id="4741cbe6-5251-46d3-b173-4ebbab8ddf28" /><confirmit:wysiwygcomponent type="ChartDataDef" id="e8efd3db-5926-4969-9872-04c1f8111447" /><confirmit:wysiwygcomponent type="AggregatedTable" id="799a1989-3e5f-4be3-917a-a7ab27075255" />
-        <div class="material-card--content--secondary">
-          <i>Top Themes represents three most mentioned categories.</i>
-        </div>
+    <div class="material-card flex">
+      <div class="material-card--title">Total Comments</div>
+      <div class="material-card--content">
+        <span class="kpi-digit">382</span>
       </div>
     </div>
 
-    <div class="material-card flex" style="min-width:480px">
-      <div class="material-card--content layout vertical" style="padding-top:24px; padding-bottom:16px">
-        <confirmit:wysiwygcomponent type="ChartDataDef" id="4cbbff8f-948c-4fbf-b65d-0d86ccb980f5" /><confirmit:wysiwygcomponent type="AggregatedTable" id="ea984a19-5a71-4f33-bbda-143bb1093e5c" /><confirmit:wysiwygcomponent type="ChartDataDef" id="de3590fe-c09d-4548-b5fa-3567b02e9b51" /><confirmit:wysiwygcomponent type="AggregatedTable" id="400c452f-a042-4bbb-a9a2-9dfe8071cc98" />
-        <div class="material-card--content--secondary">
-          <i>Top Trending Themes represents categories with the highest increase in mentions.</i>
-        </div>
+    <div class="material-card flex">
+      <div class="material-card--title">Top Positive Promoter Theme</div>
+      <div class="material-card--content">
+        <confirmit:wysiwygcomponent type="AggregatedTable" id="3f31b95b-7661-4ca4-aaa3-cfac6499e366" />
       </div>
     </div>
 
-  </div>
-
-  <div class="material-section--title">Positive vs negative</div>
-  <div class="layout horizontal wrap material-section" style="display:none">
-
-    <div class="material-card flex" style="min-width:480px">
-      <div class="material-card--content layout vertical" style="padding-top:24px; padding-bottom:16px">
-        <confirmit:wysiwygcomponent type="ChartDataDef" id="d9fb5a0d-9aa1-41f7-90f9-270aaba6a214" /><confirmit:wysiwygcomponent type="AggregatedTable" id="2c51f552-1799-49f3-b39c-79d7076bbfa5" />
-        <confirmit:wysiwygcomponent type="ChartDataDef" id="136c2ec4-9717-423c-838d-fa3e43df534e" /><confirmit:wysiwygcomponent type="AggregatedTable" id="cab9b1cc-7ff9-4c37-aaed-508f13f63011" />
+    <div class="material-card flex">
+      <div class="material-card--title">Top Negative Promoter Theme</div>
+      <div class="material-card--content">
+        <confirmit:wysiwygcomponent type="AggregatedTable" id="9ff3344e-4101-4a2b-943f-fe8e6d66884a" />
       </div>
     </div>
 
-    <div class="material-card flex" style="min-width:480px">
-      <div class="material-card--content layout vertical" style="padding-top:24px; padding-bottom:16px">
-        <confirmit:wysiwygcomponent type="ChartDataDef" id="7cfd7707-0f3a-4d73-86b6-ab5e6422b6d5" /><confirmit:wysiwygcomponent type="AggregatedTable" id="0c5270ea-00cd-45be-9817-38a1f3366e70" />
+    <div class="material-card flex">
+      <div class="material-card--title">Top Negative Detractor Theme</div>
+      <div class="material-card--content">
+        <confirmit:wysiwygcomponent type="AggregatedTable" id="489a090c-28fe-4887-af19-d66f6ca5da61" />
       </div>
     </div>
 
   </div>
 
-
-  <div class="material-section--title">Theme Distribution</div>
-  <div class="layout vertical material-section">
-
-    <div class="material-card">
-      <div class="material-card--content layout vertical" style="padding-top:24px; padding-bottom:16px">
-        View by: <confirmit:wysiwygcomponent type="ParameterNavigator" id="e50160fb-1998-40b0-b1dd-089976a9606c" />
-        Filter by: <confirmit:wysiwygcomponent type="ReportalFilter" id="fa8ce6ad-87d6-4ac8-aa54-3618ffaef481" />
-        <confirmit:wysiwygcomponent type="AggregatedTable" id="695f2a63-4fca-4b16-a6ad-4d685dd82bd8" />
-        <div class="material-card--content--secondary">
-          <i>Top Themes represents three most mentioned categories.</i>
-        </div>
-      </div>
-    </div>
-
-    <div class="material-card">
-      <div class="material-card--content layout vertical" style="padding-top:24px; padding-bottom:16px">
-        <confirmit:wysiwygcomponent type="ChartDataDef" id="d1e7ed21-d40a-479b-ab64-b42a2175e287" />
-        <confirmit:wysiwygcomponent type="AggregatedTable" id="40564deb-bdae-402a-bf3c-89f35b94b454" />
+  <div class="layout horizontal wrap material-section">
+    <div class="material-card flex" style="min-width:480px">
+      <div class="material-card--content" style="padding-left:0; padding-right:0;">
+        <span class="reportal-select" style="padding-left:16px">
+          <label>Category:</label>
+          <confirmit:wysiwygcomponent type="ReportalDropDown" id="9595fc25-60ed-4a6e-a780-a9145521864d" />
+        </span>
+        <span class="reportal-select">
+          <label>View By:</label>
+          <confirmit:wysiwygcomponent type="ParameterNavigator" id="77176463-0225-432e-a6d3-3594aae8c00a" />
+        </span>
+        <confirmit:wysiwygcomponent type="AggregatedTable" id="9f434bd8-cf0c-466f-b67a-0a0b79b71705" />
       </div>
     </div>
 
   </div>
-
-  <span><confirmit:wysiwygcomponent type="ReportPageLink" id="0e35fda8-5718-4321-9d24-6152ce25b49b" /></span>
 
 </div>
 
+<confirmit:wysiwygcomponent type="AggregatedTable" id="0193c920-fd26-433f-944e-6ffb96484a25" />
 
 </body>
 </html>

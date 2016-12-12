@@ -1,0 +1,41 @@
+@import "common-styles.css";
+
+.reportal-select {
+  &>span{
+    background:#fff;
+    position:relative;
+    &:after {
+      @apply --arrow-down;
+      right: 11px;
+      bottom: 14px;
+      z-index:0;
+    }
+  }
+
+  & select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    @apply --reportal-input;
+
+    &:active,
+    &:focus {
+      outline: 0;
+      border-bottom-color: var(--default-primary-color) !important;
+    }
+
+
+    @media screen and (min-width:0\0) {padding: 5px;}
+
+    &::-ms-expand {
+       display: none; /*removes arrow*/
+
+  }}
+  & select:not([multiple]) {
+    padding: 4px 27px 4px 4px;
+    height: 34px;
+  }
+    & select[multiple] {
+    padding: 4px;
+  }
+  &.multiple :before, &.multiple :after{display:none}
+}
