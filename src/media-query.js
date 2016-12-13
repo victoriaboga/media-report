@@ -18,6 +18,7 @@ export default class MediaQuery{
     this._mq = null;
     this._callback = callback;
     this._context = context;
+    this._bound = this._onMatch.bind(this);
     this.query=query;
   }
 
@@ -47,13 +48,13 @@ export default class MediaQuery{
 
   _add(){
     if (this._mq) {
-      this._mq.addListener(this._onMatch.bind(this));
+      this._mq.addListener(this._bound);
     }
   }
 
   _remove() {
     if (this._mq) {
-      this._mq.removeListener(this._onMatch);
+      this._mq.removeListener(this._bound);
     }
     this._mq = null;
   }
