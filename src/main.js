@@ -1,10 +1,12 @@
 require('./main.css');
 import MDHierarchy from "./hierarchy/hierarchy";
+import SideNav from "./side-nav/side-nav";
+import MediaQuery from "./media-query";
 
 export default class HeaderScroller{
   constructor(win,header){
     this.header = header;
-//TODO: add functionality to dynamically add classes to body and header to make them float off the page.
+    //TODO: add functionality to dynamically add classes to body and header to make them float off the page.
     this._meta = {
       lastScrollY:0,
       ticking:false,
@@ -17,6 +19,8 @@ export default class HeaderScroller{
 
     win.addEventListener("scroll", ()=>{this.scrollFixed()}, false); // attach a resize listener to resize the header
     win.addEventListener("scroll", ()=>{this.resizeFixed()}, false); // attach a resize listener to resize the header
+    this.mq = new MediaQuery({query:"max-width:760px"},(matches)=>{console.log(matches,this)},this);
+
   }
 
   requestTick(callback){
@@ -25,6 +29,8 @@ export default class HeaderScroller{
       this._meta.ticking = true;
     }
   }
+
+
 
   /**
    * Calculates widths for all columns in the fixed header based on the `source`
@@ -61,11 +67,13 @@ window.addEventListener('DOMContentLoaded',()=>{
     r2.addEventListener('load',(e)=>{
       console.log('r2 iframe loaded');
       let r2window = e.target.contentWindow;
-      let rHeader = document.querySelector('.reportalBar');
+      let rHeader = document.querySelector('.reportal-bar');
+      rHeader.classList.add('reportal-bar--fixed');
       if(rHeader){
         let r2d2 = new HeaderScroller(r2window,rHeader);
         console.log(r2d2)
       }
     })
   }
+  new SideNav();
 });

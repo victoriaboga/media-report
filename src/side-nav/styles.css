@@ -15,9 +15,7 @@
  * limitations under the License.
  */
 
-@media all AND (min-width:0) AND (max-width:768px) {
 
-}
 
 * {
   box-sizing: border-box;
@@ -61,7 +59,11 @@ html, body {
   overflow: hidden;
   pointer-events: none;
 }
+@media all AND (min-width:0) AND (max-width:768px) {
 
+  .body-wrapper{
+    @apply --layout-vertical-reverse;
+  }
 .side-nav--visible {
   pointer-events: auto;
 }
@@ -151,4 +153,5 @@ html, body {
 
 .side-nav__content li:hover {
   background: #CCC;
+}
 }

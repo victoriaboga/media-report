@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-'use strict';
+import Detabinator from "./detabinator";
 
 class SideNav {
   constructor () {
@@ -137,5 +137,5 @@ class SideNav {
     this.sideNavEl.addEventListener('transitionend', this.onTransitionEnd);
   }
 }
+export default SideNav
 
-new SideNav();

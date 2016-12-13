@@ -24,7 +24,7 @@
  * Limitations: Doesn't support Shadow DOM v0 :P
  */
 
-class Detabinator {
+export default class Detabinator {
   constructor(element) {
     if (!element) {
       throw new Error('Missing required argument. new Detabinator needs an element reference');

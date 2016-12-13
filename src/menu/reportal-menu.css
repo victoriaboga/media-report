@@ -1,8 +1,9 @@
-.mainMenu{
+.reportal-horizontal-menu{
   padding-left:56px;
   padding-right:56px;
+  @apply --layout-flex;
 }
-.mainMenu>.yui3-menu{
+.reportal-horizontal-menu>.yui3-menu{
   background:none;
   padding:0;
   overflow: visible;

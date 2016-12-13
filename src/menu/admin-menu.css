@@ -26,13 +26,13 @@
 
 .admin-menu{
   & li{
-    *width: 112px;
+    min-width: 112px;
     box-shadow:0 4px 5px 0 rgba(0, 0, 0, 0.14),0 2px 4px -1px rgba(0, 0, 0, 0.4);
     padding:0;
     line-height:48px;
     margin-left:-112px;
     border:0;
-    
+
     &:last-child{
       border-bottom-left-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
