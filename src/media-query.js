@@ -42,7 +42,7 @@ export default class MediaQuery{
       query = '(' + query + ')';
     }
     this._mq = window.matchMedia(query);
-    this.queryMatches = this._mq.matches;
+    this._onMatch(this._mq);
     this._add();
   }
 
