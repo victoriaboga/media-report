@@ -1,0 +1,43 @@
+
+[class*="icon-"]{
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-width:24px;
+    min-height:24px;
+}
+.icon-update{
+  background-image: var(--icon-update);
+}
+.icon-timeline{
+  background-image: var(--icon-timeline);
+}
+.icon-thumbs-up-down{
+  background-image: var(--icon-thumbs-up-down);
+}
+.icon-group-add{
+  background-image: var(--icon-group-add);
+}
+.icon-gps-fixed{
+  background-image: var(--icon-gps-fixed);
+}
+.icon-multiline-chart{
+  background-image: var(--icon-multiline-chart);
+}
+.icon-report{
+  background-image: var(--icon-report);
+}
+.icon-info-outline{
+  background-image: var(--icon-info-outline);
+}
+.icon-profile-circle{
+  background-image: var(--icon-profile-circle);
+}
+/* a triangle between kpi tiles in customer journey */
+.triangle-right {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 50px 0 50px 20px;
+  border-color: transparent transparent transparent var(--disabled-text-color);
+}

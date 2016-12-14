@@ -65,7 +65,7 @@ class SideNav {
     this.showButtonEl.addEventListener('click', this.showSideNav);
     this.hideButtonEl.addEventListener('click', this.hideSideNav);
     this.sideNavEl.addEventListener('click', this.hideSideNav);
-    this.sideNavContainerEl.addEventListener('click', this.blockClicks);
+    this.sideNavContainerEl.addEventListener('click', this.constructor.blockClicks);
 
     this.sideNavEl.addEventListener('touchstart', this.onTouchStart, this.applyPassive());
     this.sideNavEl.addEventListener('touchmove', this.onTouchMove, this.applyPassive());
@@ -114,7 +114,7 @@ class SideNav {
     this.sideNavContainerEl.style.transform = `translateX(${translateX}px)`;
   }
 
-  blockClicks (evt) {
+  static blockClicks (evt) {
     evt.stopPropagation();
   }
 

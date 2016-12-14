@@ -1,0 +1,35 @@
+/*button mixin*/
+.reportal-button{
+  @apply(--reportal-button);
+  @apply(--shadow-transition);
+  text-transform: uppercase;
+  color: var(--primary-text-color) !important;
+  text-decoration:none !important;
+  box-shadow:0;
+  &:hover{
+    background-color: var(--primary-background-color) ;
+    color:var(--primary-text-color) !important;
+    @apply(--shadow-elevation-2dp);
+  }
+  &[class*=icon-]{
+    padding-left:40px;
+    background-position: 8px center !important;
+  }
+
+  &.primary{
+    background-color: var(--default-primary-color);
+    color: var(--text-primary-color) !important;
+    &:hover{
+      background-color: var(--light-primary-color) ;
+      color: var(--text-primary-color) !important;
+    }
+  }
+  &.accent{
+    background-color: var(--default-accent-color);
+    color: var(--text-primary-color) !important;
+    &:hover{
+      background-color: var(--light-accent-color) ;
+      color: var(--text-primary-color) !important;
+    }
+  }
+}

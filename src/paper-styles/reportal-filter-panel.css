@@ -1,0 +1,113 @@
+:root{
+  --chip-height:24px;
+}
+
+/* filter-container styles */
+.fc-container {
+  background: transparent !important;
+  border-radius: 0 !important;
+  border:0 !important;
+  max-width: calc(var(--filter-panel-width) - 16px) !important;
+
+  &>.fc-title-area,
+  &>.fc-filter-summary-wrapper{
+    display: none;
+  }
+  & .fc-filter{
+    padding: 8px 0 !important;
+    border-bottom:0 !important;
+    margin: 0 !important;
+
+    &>.btn-base-list{
+      border:0 !important;
+      border-radius: 0 !important;
+      &>li{
+        line-height: 16px  !important;
+        padding: 8px 16px 8px 8px  !important;
+        background: transparent  !important;
+        border: 0 !important;
+      }
+    }
+  }
+  & .fc-filter-title{
+    color: var(--secondary-text-color)  !important;
+    margin: 0 !important;
+    font-weight:500 !important;
+  }
+
+}
+
+/* select2 styles */
+.select2-container{
+  &> .select2-choices{
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--divider-color);
+
+    &>.select2-search-choice{
+      @apply(--layout-horizontal);
+      border: 0 !important;
+      border-radius: var(--chip-height) !important;
+      padding: 0;
+      height: var(--chip-height) !important;
+      background: var(--divider-color) !important;
+      margin: 4px !important;
+      @apply(--shadow-elevation-2dp);
+
+      &>div{
+        padding-left:12px;
+        line-height: var(--chip-height);
+        font-size:12px;
+      }
+    }
+    & .select2-search-choice-close{
+      position:relative !important;
+      top:initial;
+      right:initial;
+      bottom:initial;
+      left:initial;
+      margin-left: 4px;
+      width: var(--chip-height);
+      height: var(--chip-height);
+      border-radius: 50%;
+      background:var(--icon-cancel-circle) center center no-repeat !important;
+      opacity: 0.42;
+      @apply(--transition);
+
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+  }
+  &.select2-container-active> .select2-choices{
+    box-shadow: none !important;
+    border:0;
+    border-bottom: 1px solid var(--default-primary-color);
+  }
+
+}
+.select2-drop{
+  @apply(--shadow-elevation-4dp);
+  margin-top: 0 !important;
+  border-radius: var(--border-radius);
+
+  &.select2-drop-active{
+    border:0 !important;
+  }
+  &>.select2-results{
+    margin:0 !important;
+    padding: 8px 0 !important;
+
+    & .select2-highlighted{
+      background: var(--default-primary-color) !important;
+
+      &>.select2-result-label{
+        color: var(--text-primary-color) !important;
+      }
+    }
+    & .select2-result-label{
+      padding: 0 16px !important;
+      line-height: 48px !important;
+    }
+  }
+}

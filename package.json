@@ -63,6 +63,7 @@
     "codecov": ">1.0.0"
   },
   "dependencies": {
-    "flexboxLayout": "github:confirmitasa/flexboxLayout"
+    "flexboxLayout": "github:confirmitasa/flexboxLayout",
+    "media-query": "github:confirmitasa/media-query"
   }
 }

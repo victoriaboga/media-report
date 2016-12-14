@@ -18,13 +18,14 @@
 
 /**
  * Usage:
+ * 
+ * ``` javascript
  * const detabinator = new Detabinator(element);
  * detabinator.inert = true;  // Sets all focusable children of element to tabindex=-1
  * detabinator.inert = false; // Restores all focusable children of element
- * Limitations: Doesn't support Shadow DOM v0 :P
+ * ```
  */
-
-export default class Detabinator {
+class Detabinator {
   constructor(element) {
     if (!element) {
       throw new Error('Missing required argument. new Detabinator needs an element reference');
@@ -68,3 +69,4 @@ export default class Detabinator {
     });
   }
 }
+export default Detabinator;

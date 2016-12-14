@@ -135,10 +135,10 @@ html, body {
 }
 
 .side-nav__content {
+  padding: 0;
   padding-top: 32px;
   flex: 1;
   list-style: none;
-  padding: 0;
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;

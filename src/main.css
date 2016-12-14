@@ -9,6 +9,11 @@
 @import "../node_modules/flexboxLayout/src/positioning.css";
 
 @import "paper-styles/global.css";
+@import "paper-styles/material-card.css";
+@import "paper-styles/page-card-title.css";
+@import "paper-styles/reportal-filter-panel.css";
+@import "paper-styles/icons.css";
+@import "paper-styles/reportal-button.css";
 @import "hierarchy/hierarchy.css";
 
 
@@ -24,7 +29,6 @@
 @import "side-nav/styles.css";
 
 @import "viewer-presentation.css";
-@import "paper-styles/page-card-title.css";
 
 
 /* layout styles*/
@@ -40,6 +44,7 @@
   @apply --layout-horizontal;
   @apply --layout-wrap;
   @apply --layout-center;
+
   &--fixed{
     z-index:1;
     @apply --layout-fixed-top;

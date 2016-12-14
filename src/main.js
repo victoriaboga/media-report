@@ -1,7 +1,7 @@
 require('./main.css');
 import MDHierarchy from "./hierarchy/hierarchy";
 import SideNav from "./side-nav/side-nav";
-import MediaQuery from "./media-query";
+import MediaQuery from "media-query";
 
 export default class HeaderScroller{
   constructor(win,header){
@@ -19,7 +19,9 @@ export default class HeaderScroller{
 
     win.addEventListener("scroll", ()=>{this.scrollFixed()}, false); // attach a resize listener to resize the header
     win.addEventListener("scroll", ()=>{this.resizeFixed()}, false); // attach a resize listener to resize the header
-    this.mq = new MediaQuery({query:"max-width:760px"},(matches)=>{console.log(matches,this)},this);
+    this.mq = new MediaQuery({query:"max-width:760px"},(matches)=>{
+
+    },this);
 
   }
 
@@ -29,8 +31,6 @@ export default class HeaderScroller{
       this._meta.ticking = true;
     }
   }
-
-
 
   /**
    * Calculates widths for all columns in the fixed header based on the `source`
@@ -61,7 +61,11 @@ export default class HeaderScroller{
 }
 
 window.addEventListener('DOMContentLoaded',()=>{
-    let h = new MDHierarchy(); //setup listeners for hierarchy component on open and scrim click
+  let mq = new MediaQuery({query:"max-width:760px"},(matches)=>{
+    console.log()
+  },this);
+
+  let h = new MDHierarchy(); //setup listeners for hierarchy component on open and scrim click
   let r2 = document.querySelector('.r2dashboard');
   if(r2){
     r2.addEventListener('load',(e)=>{
