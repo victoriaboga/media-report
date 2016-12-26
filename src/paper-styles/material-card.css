@@ -3,10 +3,10 @@
   min-width: 250px;
   overflow: hidden;
   @apply(--layout-vertical);
-  position:relative;
+  /*position:relative;*/
   /*width:calc(100% - 16px);*/
   margin:8px;
-  @apply(--shadow-elevation-2dp);
+  @apply --shadow-elevation-2dp;
   border-radius: var(--border-radius);
   background-color: white;
 

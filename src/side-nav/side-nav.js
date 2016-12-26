@@ -30,7 +30,7 @@ class SideNav {
 
     this.showSideNav = this.showSideNav.bind(this);
     this.hideSideNav = this.hideSideNav.bind(this);
-    this.blockClicks = this.blockClicks.bind(this);
+    this.constructor.blockClicks = this.constructor.blockClicks.bind(this);
     this.onTouchStart = this.onTouchStart.bind(this);
     this.onTouchMove = this.onTouchMove.bind(this);
     this.onTouchEnd = this.onTouchEnd.bind(this);
@@ -42,7 +42,7 @@ class SideNav {
     this.touchingSideNav = false;
 
     this.supportsPassive = undefined;
-    this.addEventListeners();
+    //this.addEventListeners();
   }
 
   // apply passive event listening if it's supported
@@ -72,10 +72,21 @@ class SideNav {
     this.sideNavEl.addEventListener('touchend', this.onTouchEnd);
   }
 
+  removeEventListeners () {
+    this.showButtonEl.removeEventListener('click', this.showSideNav);
+    this.hideButtonEl.removeEventListener('click', this.hideSideNav);
+    this.sideNavEl.removeEventListener('click', this.hideSideNav);
+    this.sideNavContainerEl.removeEventListener('click', this.constructor.blockClicks);
+
+    this.sideNavEl.removeEventListener('touchstart', this.onTouchStart);
+    this.sideNavEl.removeEventListener('touchmove', this.onTouchMove);
+    this.sideNavEl.removeEventListener('touchend', this.onTouchEnd);
+  }
+
   onTouchStart (evt) {
     if (!this.sideNavEl.classList.contains('side-nav--visible'))
       return;
-
+    //TODO:support sidebar scrolling as well
     this.startX = evt.touches[0].pageX;
     this.currentX = this.startX;
 
@@ -124,6 +135,7 @@ class SideNav {
   }
 
   showSideNav () {
+    document.querySelector('body').style.overflow="hidden";
     this.sideNavEl.classList.add('side-nav--animatable');
     this.sideNavEl.classList.add('side-nav--visible');
     this.detabinator.inert = false;
@@ -131,6 +143,7 @@ class SideNav {
   }
 
   hideSideNav () {
+    document.querySelector('body').style.overflow="auto";
     this.sideNavEl.classList.add('side-nav--animatable');
     this.sideNavEl.classList.remove('side-nav--visible');
     this.detabinator.inert = true;

@@ -15,6 +15,13 @@
   --divider-color:            rgba(18,24,33,0.12);
   --light-divider-color:      rgba(18,24,33,0.06);
 
+  /*  header settings */
+
+  --header-background-color: #fff;
+  --header-text-color: var(--primary-text-color);
+  --header-border:{
+    border-bottom: 1px solid var(--divider-color);
+  };
 
   /* all elements must inherit this */
   --border-radius:2px;

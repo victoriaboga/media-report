@@ -2,82 +2,92 @@ require('./main.css');
 import MDHierarchy from "./hierarchy/hierarchy";
 import SideNav from "./side-nav/side-nav";
 import MediaQuery from "media-query";
+import HeaderScroller from "./header-scroller";
 
-export default class HeaderScroller{
-  constructor(win,header){
-    this.header = header;
-    //TODO: add functionality to dynamically add classes to body and header to make them float off the page.
-    this._meta = {
-      lastScrollY:0,
-      ticking:false,
-      offsetHeight:header.offsetHeight,
-      window:win
-    };
-    win.document.querySelector('body').style.marginTop =  header.offsetHeight + "px";
+class MenuTransformer{
+  /**
+   * This class sets up a listener to detect whether the viewport matches the max-width set up in `breakpoint` and based on existence of an integration-iframe
+   * sets up heade scrollers or just swaps the header into horizontal or sidebar navigation modes
+   * @param {Number} [breakpoint=768] - max-width of device viewport that is considered to be a mobile device and hosts a mobile sidebar.
+   * */
+  constructor(breakpoint=768){
+    this.iframe = document.querySelector('.r2dashboard');
 
-    win.requestAnimationFrame = win.requestAnimationFrame || win.mozRequestAnimationFrame || win.webkitRequestAnimationFrame || win.msRequestAnimationFrame;
+    this.header = document.querySelector('.reportal-bar');
 
-    win.addEventListener("scroll", ()=>{this.scrollFixed()}, false); // attach a resize listener to resize the header
-    win.addEventListener("scroll", ()=>{this.resizeFixed()}, false); // attach a resize listener to resize the header
-    this.mq = new MediaQuery({query:"max-width:760px"},(matches)=>{
+    // if it's integration page - do scrolling
+    if(this.iframe){
+      document.querySelector('.body-wrapper').classList.add('integration-mode'); //reverse layout to make header appear above iframe
 
+      this.pScroller = new Promise((resolve,reject)=>{
+        let scroller;
+        if(this.iframe.contentWindow.location.href!='about:blank'){
+          scroller = this.scroller(this.iframe.contentWindow);
+
+
+          resolve(scroller); //resolve to the instance of `HeaderScroller`
+        } else {
+          this.iframe.addEventListener('load',e=>{
+            scroller = this.scroller(e.target.contentWindow); //initialise scroller
+            resolve(scroller); //resolve to the instance of `HeaderScroller`
+          });
+        }
+      });
+    }
+    this.sidenav = new SideNav();
+
+    this.mq = new MediaQuery({query:`max-width:${breakpoint}px`},(matches)=>{
+      console.log(matches);
+      if(!matches){ // if desktop
+        this.swapHeader(document.querySelector('.reportal-bar'));
+        this.sidenav.removeEventListeners();
+      } else { // if mobile
+        this.swapHeader(document.querySelector('.reportal-header'));
+        this.sidenav.addEventListeners();
+      }
     },this);
-
   }
 
-  requestTick(callback){
-    if(!this._meta.ticking) {
-      requestAnimationFrame(callback);
-      this._meta.ticking = true;
+  /**
+   * Function that sets this.header to a new HTMLElement and does the same for HeaderScroller
+   * */
+  swapHeader(header){
+    this.header = header;
+    if(this.iframe && this.pScroller){
+      this.pScroller.then(hs=>hs.header = header);
     }
   }
 
-  /**
-   * Calculates widths for all columns in the fixed header based on the `source`
-   * */
-  resizeFixed(){
-    this.requestTick(()=>{
-      this._meta.offsetHeight = this.header.offsetHeight;
-      this._meta.ticking=false;
-      this.scrollFixed(); // to compensate top offset in case after resize the table is less in height and top has changed
-    })
-  }
 
   /**
-   * Displays a fixed header when the table header is scrolled off the screen
+   * Function that initialises scroller on the header element
+   * @param {Window} w - window object of the iframe
+   * @returns {HeaderScroller} Returns `HeaderScroller` instance
    * */
-  scrollFixed() {
-    //console.log(this._meta.window);
-    this._meta.lastScrollY = this._meta.window.pageYOffset;
-    this.requestTick(this.constructor._scrollCallback.bind(this));
-  }
+  scroller(w){
+    console.log('r2 iframe loaded');
 
-  static _scrollCallback(){
-    let offset = this._meta.lastScrollY,
-        offsetTop = this._meta.offsetHeight;
-      this.header.style.top=-offset+'px';
-    this._meta.ticking=false;
+    // quick hack to hide a black editor bar
+    w.document.querySelector('.view-navigation').style.display='none';
+
+    let rHeader = this.header,
+      scroller;
+    if(rHeader){
+      scroller = new HeaderScroller(w,rHeader);
+      console.log(scroller);
+    }
+    return scroller;
   }
 }
 
-window.addEventListener('DOMContentLoaded',()=>{
-  let mq = new MediaQuery({query:"max-width:760px"},(matches)=>{
-    console.log()
-  },this);
+export default MenuTransformer;
 
-  let h = new MDHierarchy(); //setup listeners for hierarchy component on open and scrim click
-  let r2 = document.querySelector('.r2dashboard');
-  if(r2){
-    r2.addEventListener('load',(e)=>{
-      console.log('r2 iframe loaded');
-      let r2window = e.target.contentWindow;
-      let rHeader = document.querySelector('.reportal-bar');
-      rHeader.classList.add('reportal-bar--fixed');
-      if(rHeader){
-        let r2d2 = new HeaderScroller(r2window,rHeader);
-        console.log(r2d2)
-      }
-    })
-  }
-  new SideNav();
+window.addEventListener('DOMContentLoaded',()=>{
+  window.Reportal = window.Reportal || {};
+  window.Reportal.state = window.Reportal.state || {};
+  let state = window.Reportal.state;
+  state.hierarchy = new MDHierarchy(); //setup listeners for hierarchy component on open and scrim click
+  state.menuTransformer = new MenuTransformer(); //setup listeners for hierarchy component on open and scrim click
+
+  //new SideNav();
 });

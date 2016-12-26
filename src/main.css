@@ -8,6 +8,8 @@
 @import "../node_modules/flexboxLayout/src/flex-factors.css";
 @import "../node_modules/flexboxLayout/src/positioning.css";
 
+@import "../node_modules/r-loading-animation/loading-animation.css";
+
 @import "paper-styles/global.css";
 @import "paper-styles/material-card.css";
 @import "paper-styles/page-card-title.css";
@@ -37,36 +39,6 @@
   font-size: 14px;
   color: rgba(18,24,33,0.87);
 }
-.reportal-bar{
-  height:64px;
-  background-color:#fff;
-  border-bottom: 1px solid var(--divider-color);
-  @apply --layout-horizontal;
-  @apply --layout-wrap;
-  @apply --layout-center;
-
-  &--fixed{
-    z-index:1;
-    @apply --layout-fixed-top;
-  }
-
-  @media screen and (max-width:768px){
-    @apply --layout-fixed-left;
-    z-index:1;
-    @apply --layout-vertical;
-    border-bottom:0;
-    border-right:  1px solid var(--divider-color);
-    height:100%;
-    height:100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-}
-
-.companyLogo,.userActions{
-  padding-left:16px;
-  padding-right:16px;
-}
 
 body{
   margin:0;
@@ -83,4 +55,20 @@ body{
   right:0;
   bottom:0;
   left:0;
+  z-index:0;
 }
+.body-wrapper.integration-mode{
+  @apply --layout-vertical-reverse;
+  &>.side-nav{
+    z-index: 2;
+  }
+  & .reportal-bar{
+    border-bottom:0 !important;
+  }
+  &>.reportal-header{
+    z-index: 1;
+    border-bottom: 0 !important;
+  }
+  &>.r2dashboard{z-index: 0}
+}
+
