@@ -1,5 +1,5 @@
 
-export default class HeaderScroller{
+class HeaderScroller{
   /**
    * `HeaderScroller` is a class that listens to `iframe`'s window.scroll event and scrolls the `header` when the iframe is scrolled
    * @param {Window} win - iframe.contentWindow
@@ -83,3 +83,5 @@ export default class HeaderScroller{
     this._meta.ticking=false;
   }
 }
+
+export default HeaderScroller

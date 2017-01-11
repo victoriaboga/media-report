@@ -8,6 +8,9 @@ class MenuTransformer{
    * This class sets up a listener to detect whether the viewport matches the max-width set up in `breakpoint` and based on existence of an integration-iframe
    * sets up heade scrollers or just swaps the header into horizontal or sidebar navigation modes
    * @param {Number} [breakpoint=768] - max-width of device viewport that is considered to be a mobile device and hosts a mobile sidebar.
+   * @requires MediaQuery
+   * @requires SideNav
+   * @requires HeaderScroller
    * */
   constructor(breakpoint=768){
     this.iframe = document.querySelector('.r2dashboard');
