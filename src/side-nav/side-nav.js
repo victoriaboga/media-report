@@ -18,6 +18,9 @@
 import Detabinator from "./detabinator";
 
 class SideNav {
+  /**
+   * A class that sets up a sidebar that is dismissed on scrim-click or on swipe and is opend on hamburger-icon click
+   * */
   constructor () {
     this.showButtonEl = document.querySelector('.js-menu-show');
     this.hideButtonEl = document.querySelector('.js-menu-hide');

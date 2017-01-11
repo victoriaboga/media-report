@@ -1,5 +1,10 @@
 
 export default class HeaderScroller{
+  /**
+   * `HeaderScroller` is a class that listens to `iframe`'s window.scroll event and scrolls the `header` when the iframe is scrolled
+   * @param {Window} win - iframe.contentWindow
+   * @param {HTMLElement} header - header element that needs to be scrolled
+   * */
   constructor(win,header){
     win.requestAnimationFrame = win.requestAnimationFrame || win.mozRequestAnimationFrame || win.webkitRequestAnimationFrame || win.msRequestAnimationFrame;
 

@@ -3,10 +3,12 @@
  */
 
 class MDHierarchy {
+  /**
+   * attaches a listener to a hierarchy popup when it's initialised to be able to close it on click-outside
+   * */
   constructor(){
     let btn = document.querySelector('.dd-target-button');
     if(btn){
-
       btn.addEventListener('click',e=>{
         this.constructor.noScroll();
         let dd = btn.parentNode.querySelector('.dd-drilldown');

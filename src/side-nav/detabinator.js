@@ -16,16 +16,18 @@
  */
 
 
-/**
- * Usage:
- * 
- * ``` javascript
- * const detabinator = new Detabinator(element);
- * detabinator.inert = true;  // Sets all focusable children of element to tabindex=-1
- * detabinator.inert = false; // Restores all focusable children of element
- * ```
- */
 class Detabinator {
+  /**
+   * Helps to maintain a healthy tabulation within the sidebar when it's open, rather than tabulate the whole page
+   * Usage:
+   *
+   * ``` javascript
+   * const detabinator = new Detabinator(element);
+   * detabinator.inert = true;  // Sets all focusable children of element to tabindex=-1
+   * detabinator.inert = false; // Restores all focusable children of element
+   * ```
+   * @param {HTMLElement} element
+   */
   constructor(element) {
     if (!element) {
       throw new Error('Missing required argument. new Detabinator needs an element reference');
