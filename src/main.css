@@ -16,6 +16,7 @@
 @import "paper-styles/reportal-filter-panel.css";
 @import "paper-styles/icons.css";
 @import "paper-styles/reportal-button.css";
+@import "paper-styles/material-table.css";
 @import "hierarchy/hierarchy.css";
 
 
@@ -26,7 +27,6 @@
 
 @import "reportal-inputs/reportal-select.css";
 
-@import "dataTable/dataTable.css";
 
 @import "side-nav/styles.css";
 

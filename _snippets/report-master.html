@@ -1,38 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Visual test</title>
-</head>
-<body>
-
 <script>
   //meta-creator, pass array of arrays [['paramName', 'paramValue']]
-  function addMeta(params){
-    if(params && typeof params ==='object'){
-      var meta = document.createElement('meta');
-      for(var key in params){
-        meta.setAttribute(key, params[key]);
-      }
-      document.head.appendChild(meta);
-    }
-  }
+  function addMeta(params){if(params && typeof params ==='object'){var meta = document.createElement('meta');for(var key in params){meta.setAttribute(key, params[key]);} document.head.appendChild(meta);}}
 
   //This script assumes that the icons are placed in the same folder as the script itself
   //make reportal a web-app via  tags
   addMeta({name:'viewport', content:'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'});
-  addMeta({name:'theme-color', content:'#484f59'}); //Chrome for Android theme color
-  addMeta({name:'msapplication-TileColor', content:'#efefef'}); //Tile color for Win8
+  addMeta({name:'theme-color', content:'#f0f2f5'}); //Chrome for Android theme color
+  addMeta({name:'msapplication-TileColor', content:'#f0f2f5'}); //Tile color for Win8
   //addMeta({name:'msapplication-TileImage', content:'ms-touch-icon-144x144-precomposed.png'}); //Tile icon for Win8 (144x144)
 
   //Add to homescreen for Chrome on Android
   addMeta({name:'mobile-web-app-capable',content:'yes'});
   //addMeta({name:'application-name', content:'Text Analytics'});
   //Add to homescreen for Safari on iOS
-  addMeta({name:'apple-mobile-web-app-capable', content:'yes'});
-  addMeta({name:'apple-mobile-web-app-status-bar-style', content:'#484f59'});
-  addMeta({name:'apple-mobile-web-app-title', content:'Text Analytics'});
+  addMeta({name:'apple-mobile-web-app-capable', content:'yes'});addMeta({name:'apple-mobile-web-app-status-bar-style', content:'#f0f2f5'});addMeta({name:'apple-mobile-web-app-title', content:'Text Analytics'});
 </script>
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet" type="text/css">
@@ -56,6 +37,3 @@
     </div></div>
   <confirmit:wysiwygcomponent type="PageTarget" id="41e5fb4e-2233-423f-ba42-da1753d736ee" />
 </div>
-
-</body>
-</html>
