@@ -21,35 +21,6 @@
   box-sizing: border-box;
 }
 
-html, body {
-  padding: 0;
-  margin: 0;
-  background: #FAFAFA;
-  font-family: Arial, sans-serif;
-}
-
-.header {
-  width: 100%;
-  height: 56px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-  background: #333;
-  color: #FFF;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0 16px;
-}
-
-.header__menu-toggle {
-  background: none;
-  border: none;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  margin: 0;
-  color: #FFF;
-}
-
 @media all AND (min-width:0) AND (max-width:768px) {
 
   /*header styles*/
@@ -113,7 +84,7 @@ html, body {
   .side-nav__container {
     position: relative;
     width: 90%;
-    max-width: 400px;
+    max-width: 300px;
     background: #FFF;
     height: 100%;
     box-shadow: 2px 0 12px rgba(0,0,0,0.4);

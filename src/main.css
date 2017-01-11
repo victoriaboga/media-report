@@ -19,10 +19,10 @@
 @import "hierarchy/hierarchy.css";
 
 
-@import "menu/admin-menu.css";
-@import "menu/reportal-menu.css";
-@import "menu/reportal-tabbed-menu.css";
-@import "menu/reportal-header.css";
+@import "navigation/admin-menu.css";
+@import "navigation/reportal-menu.css";
+@import "navigation/reportal-tabbed-menu.css";
+@import "navigation/reportal-header.css";
 
 @import "reportal-inputs/reportal-select.css";
 
@@ -30,21 +30,21 @@
 
 @import "side-nav/styles.css";
 
-@import "viewer-presentation.css";
+@import "navigation/viewer-presentation.css";
 
 
 /* layout styles*/
 * {
   font-family:Roboto, sans-serif !important;
-  font-size: 14px;
   color: rgba(18,24,33,0.87);
 }
 
 body{
   margin:0;
+  font-size: 14px;
   height:100vh;
   min-width:100% !important;
-  /*overflow: hidden;*/
+  -webkit-font-smoothing: antialiased;  /* OS X subpixel AA bleed bug */
 }
 .r2dashboard{
   width:100%;
