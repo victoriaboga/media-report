@@ -84,7 +84,7 @@ export class CSSvarPolyfill {
 
     // loop through the css blocks (styles and links)
     for (let curCSSID in CSSvarPolyfill.oldCSS) {
-      if (window.CP.shouldStopExecution(1)) {
+      if (window.CP && window.CP.shouldStopExecution(1)) {
         break;
       }
       console.log("curCSS:", CSSvarPolyfill.oldCSS[curCSSID]);
@@ -104,7 +104,7 @@ export class CSSvarPolyfill {
         document.getElementsByTagName('head')[0].appendChild(style);
       }
     }
-    window.CP.exitedLoop(1);
+    window.CP && window.CP.exitedLoop(1);
 
   }
 
@@ -112,7 +112,7 @@ export class CSSvarPolyfill {
   static replaceGetters(curCSS, varList) {
     console.log(varList);
     for (let theVar in varList) {
-      if (window.CP.shouldStopExecution(2)) {
+      if (window.CP && window.CP.shouldStopExecution(2)) {
         break;
       }
       console.log(theVar);
@@ -138,7 +138,7 @@ export class CSSvarPolyfill {
 
       // curCSS = curCSS.replace(getterRegex2,varList[theVar]);
     }
-    window.CP.exitedLoop(2);
+    window.CP && window.CP.exitedLoop(2);
 
     console.log(curCSS);
     return curCSS;
@@ -148,7 +148,7 @@ export class CSSvarPolyfill {
   static ratifySetters(varList) {
     console.log("varList:", varList);
     // loop through each block in order, to maintain order specificity
-    for (let curBlock in varList) {//if (window.CP.shouldStopExecution(3)){break;}
+    for (let curBlock in varList) {//if (window.CP && window.CP.shouldStopExecution(3)){break;}
       let curVars = varList[curBlock];
       console.log("curVars:", curVars);
       // loop through each let in the block
@@ -162,7 +162,7 @@ export class CSSvarPolyfill {
         CSSvarPolyfill.ratifiedVars[matches[0]] = matches[1].replace(/;/, '');
       });
     }
-    window.CP.exitedLoop(3);
+    window.CP && window.CP.exitedLoop(3);
 
     console.log(ratifiedVars);
   }
