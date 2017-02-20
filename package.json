@@ -1,11 +1,11 @@
 {
-  "name": "r2integration",
+  "name": "media-report",
   "version": "0.1.1",
-  "description": "R2 integration into Reportal",
+  "description": "Media Report",
   "main": "src/main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ConfirmitASA/ES6_test_framework_boilerplate.git"
+    "url": "https://github.com/ConfirmitASA/media-report.git"
   },
   "scripts": {
     "build": "npm run clean && npm run build:prd",
@@ -14,7 +14,7 @@
     "clean": "rimraf dist build",
     "lint": "eslint src",
     "docs": "node_modules/.bin/jsdoc --configure jsdoc.conf --verbose",
-    "docs-commit": "git subtree push --prefix docs/r2integration/0.1.1 origin gh-pages",
+    "docs-commit": "git subtree push --prefix docs/media-report/0.1.1 origin gh-pages",
     "test": "karma start --single-run --no-auto-watch karma.config.js",
     "report-coverage": "codecov -f coverage/lcov.info"
   },
@@ -63,7 +63,9 @@
     "codecov": ">1.0.0"
   },
   "dependencies": {
+    "MD-reportal-filter-panel": "github:confirmitasa/MD-reportal-filter-panel",
     "flexboxLayout": "github:confirmitasa/flexboxLayout",
-    "media-query": "github:confirmitasa/media-query"
+    "media-query": "github:confirmitasa/media-query",
+    "r-loading-animation": "github:confirmitasa/r-loading-animation"
   }
 }
