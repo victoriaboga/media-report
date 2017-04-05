@@ -1,5 +1,5 @@
 :root{
-  --filter-panel-width:240px;
+  --filter-panel-width:300px;
 }
 
 .pageContent{
@@ -31,13 +31,15 @@ table.kpi-digit td:not([class*="_chc"]), .kpi-digit{
 
 /*filter panel styles*/
 .filter-panel{
-  padding:8px;
-  border-right: 1px solid var(--divider-color);
-  min-width:var(--filter-panel-width);
-
-  &>*:not(:first-child) {
-    margin-top:16px;
+  &>div{
+    height:100%;
+    padding:8px;
+    border-right: 1px solid var(--divider-color);
+    min-width:var(--filter-panel-width);
+    &>*:not(:first-child) {
+      margin-top:16px;
   }
+}
 }
 
 

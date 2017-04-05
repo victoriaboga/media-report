@@ -1,9 +1,23 @@
-<div class="reportal-header"><span class="js-menu-hide"></span>
-  <span class="reportal-header--menu-toggle js-menu-show">
+<div class="reportal-header">
+  <span class="js-menu-hide"><!-- Place an icon here if you want to have a toggle to close the sidebar on click --></span>
+  <span class="reportal-header--menu-toggle js-menu-show"> <!-- hamburger menu to open sidebar -->
     <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
   </span>
   <!-- page title must have class .reportal-header--title -->
-  <confirmit:wysiwygcomponent type="PageTitle" id="559c7eff-e406-4f3a-b187-d5effd92222d" />
+  <confirmit:wysiwygcomponent type="PageTitle" id="377d6805-b608-4508-9049-6bd34e457300" />
+  <span class="js-fp-show" style="cursor:pointer;">
+  <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="rgba(18, 24, 33, .87)" d="M3,2H21V2H21V4H20.92L14,10.92V22.91L10,18.91V10.91L3.09,4H3V2Z"></path>
+  </svg>
+</span><span class="js-fp-hide"></span>
 </div>
+<div class="layout horizontal" style="height:calc(100vh - 64px)">
+  <div class="filter-panel js-filter-panel side-nav" style="min-width:240px;overflow-y:auto;overflow-x:hidden">
+    <div class="js-filter-panel-container side-nav__container">
+      <div class="material-section--title" style="padding:8px 0;">Filters</div>
+      <confirmit:wysiwygcomponent type="FilterContainer" id="4dbfb812-c717-4d12-a00a-e5c610eb5cbf" />
+    </div>
+  </div>
 
-<confirmit:wysiwygcomponent type="PageDesignArea" id="e726ee70-4c68-47d7-841c-94adc995ae3e" />
+  <confirmit:wysiwygcomponent type="PageDesignArea" id="32c37b70-43ea-4e59-a27a-3ea5b95eca14" />
+</div>

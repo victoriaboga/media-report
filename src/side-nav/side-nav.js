@@ -21,11 +21,16 @@ class SideNav {
   /**
    * A class that sets up a sidebar that is dismissed on scrim-click or on swipe and is opend on hamburger-icon click
    * */
-  constructor () {
-    this.showButtonEl = document.querySelector('.js-menu-show');
-    this.hideButtonEl = document.querySelector('.js-menu-hide');
-    this.sideNavEl = document.querySelector('.js-side-nav');
-    this.sideNavContainerEl = document.querySelector('.js-side-nav-container');
+  constructor ({
+                 showButtonEl=document.querySelector('.js-menu-show'),
+                 hideButtonEl = document.querySelector('.js-menu-hide'),
+                 sideNavEl = document.querySelector('.js-side-nav'),
+                 sideNavContainerEl = document.querySelector('.js-side-nav-container')
+               }={}) {
+    this.showButtonEl = showButtonEl;
+    this.hideButtonEl = hideButtonEl;
+    this.sideNavEl = sideNavEl;
+    this.sideNavContainerEl = sideNavContainerEl;
     // Control whether the container's children can be focused
     // Set initial state to inert since the drawer is offscreen
     this.detabinator = new Detabinator(this.sideNavContainerEl);
@@ -33,7 +38,7 @@ class SideNav {
 
     this.showSideNav = this.showSideNav.bind(this);
     this.hideSideNav = this.hideSideNav.bind(this);
-    this.constructor.blockClicks = this.constructor.blockClicks.bind(this);
+    SideNav.blockClicks = SideNav.blockClicks.bind(this);
     this.onTouchStart = this.onTouchStart.bind(this);
     this.onTouchMove = this.onTouchMove.bind(this);
     this.onTouchEnd = this.onTouchEnd.bind(this);
@@ -68,7 +73,7 @@ class SideNav {
     this.showButtonEl.addEventListener('click', this.showSideNav);
     this.hideButtonEl.addEventListener('click', this.hideSideNav);
     this.sideNavEl.addEventListener('click', this.hideSideNav);
-    this.sideNavContainerEl.addEventListener('click', this.constructor.blockClicks);
+    this.sideNavContainerEl.addEventListener('click', SideNav.blockClicks);
 
     this.sideNavEl.addEventListener('touchstart', this.onTouchStart, this.applyPassive());
     this.sideNavEl.addEventListener('touchmove', this.onTouchMove, this.applyPassive());
@@ -79,7 +84,7 @@ class SideNav {
     this.showButtonEl.removeEventListener('click', this.showSideNav);
     this.hideButtonEl.removeEventListener('click', this.hideSideNav);
     this.sideNavEl.removeEventListener('click', this.hideSideNav);
-    this.sideNavContainerEl.removeEventListener('click', this.constructor.blockClicks);
+    this.sideNavContainerEl.removeEventListener('click', SideNav.blockClicks);
 
     this.sideNavEl.removeEventListener('touchstart', this.onTouchStart);
     this.sideNavEl.removeEventListener('touchmove', this.onTouchMove);

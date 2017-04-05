@@ -2,12 +2,13 @@
   --chip-height:24px;
 }
 
+
 /* filter-container styles */
 .fc-container {
   background: transparent !important;
   border-radius: 0 !important;
   border:0 !important;
-  max-width: calc(var(--filter-panel-width) - 16px) !important;
+  max-width: calc(var(--filter-panel-width) - 16px);
 
   &>.fc-title-area,
   &>.fc-filter-summary-wrapper{
