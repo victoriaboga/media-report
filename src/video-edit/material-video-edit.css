@@ -30,7 +30,7 @@ input[type=radio], input[type=checkbox] {
   display: inline-block;
   text-align: left;
   vertical-align: top;
-  width: 640px;
+  max-width: 640px;
   word-wrap: break-word;
 }
 .material-video-edit--video {
@@ -39,7 +39,7 @@ input[type=radio], input[type=checkbox] {
 .material-video-edit--icons {
   position: absolute;
   right: 24px;
-  top: 18px;
+  top: 8px;
 }
 .material-video-edit--like, .material-video-edit--favourite {
   display: inline-block;
@@ -185,7 +185,7 @@ input[type=radio], input[type=checkbox] {
   background: #8BC34A;
 }
 .material-video-edit--save {
-  padding: 8px;
+  padding: 24px;
   text-align: right;
 }
 .material-video-edit--save input {
