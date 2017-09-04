@@ -21,7 +21,7 @@
   box-sizing: border-box;
 }
 
-@media all AND (min-width:0) AND (max-width:768px) {
+@media screen AND (min-width:0) AND (max-width:768px) {
 
   /*header styles*/
 

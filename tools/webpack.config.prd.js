@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+const ReportalPostcssExtractor = require('reportal-postcss-extractor');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var packageJSON = require('../package.json');
 var name = packageJSON["name"];
@@ -25,6 +26,7 @@ config.module.loaders.push({
 config.devtool = 'source-map';
 config.plugins = [
   new webpack.optimize.OccurenceOrderPlugin(),
+  new ReportalPostcssExtractor(),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('production'),
   }),

@@ -1,4 +1,5 @@
 @import "variables.css";
+@import "../node_modules/r-react-video/src/main.css";
 
 @import "../node_modules/flexboxLayout/src/layout-mixins.css";
 

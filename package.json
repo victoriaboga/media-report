@@ -66,6 +66,9 @@
     "MD-reportal-filter-panel": "github:confirmitasa/MD-reportal-filter-panel",
     "flexboxLayout": "github:confirmitasa/flexboxLayout",
     "media-query": "github:confirmitasa/media-query",
-    "r-loading-animation": "github:confirmitasa/r-loading-animation"
+    "postcss-cssnext": "github:confirmitasa/postcss-cssnext",
+    "r-loading-animation": "github:confirmitasa/r-loading-animation",
+    "r-react-video": "github:ConfirmitASA/r-react-video",
+    "reportal-postcss-extractor": "github:confirmitasa/reportal-postcss-extractor"
   }
 }
