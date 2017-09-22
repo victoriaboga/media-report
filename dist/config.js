@@ -26,10 +26,7 @@ var headerBackgroundColor = Config.Design.headerBackgroundColor;
 
 var str = "<style>";
 
-str += ".SingleView--nav-button:hover > svg {fill: " + defaultAccentColor + 
-"\n;}.ImageGridTile:hover .ImageGridTile--title {color: " + defaultAccentColor + 
-"\n;}.materialButton.accent {background-color: " + defaultAccentColor + 
-"\n;}.materialButton.accent {color: " + textPrimaryColor + 
+str += ".materialButton.accent {color: " + textPrimaryColor + 
 "\n;}.fc-container .fc-apply-button {background-color: " + defaultAccentColor + 
 "\n !important;}.select2-drop>.select2-results .select2-highlighted {background: " + defaultAccentColor + 
 "\n !important;}.fc-container .fc-apply-button {color: " + textPrimaryColor + 
