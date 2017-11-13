@@ -1,15 +1,15 @@
 /* Config to define variables */
 :root {
   /* theme colors defined*/
-  --dark-primary-color:       #0096e6;
-  --default-primary-color:    #00B0FF;
-  --light-primary-color:      #40C4FF;
-  --text-primary-color:       #FFFFFF;
+  --dark-primary-color:       #4572ed;
+  --default-primary-color:    #5787f4;
+  --light-primary-color:      #6b95f9;
+  --text-primary-color:       #e4e7eb;
   --dark-accent-color:        #43a442;
   --default-accent-color:     #42BD41;
   --light-accent-color:       #42d641;
-  --primary-background-color: #f0f2f5;
-  --primary-text-color:       rgba(18,24,33,0.87);
+  --primary-background-color: #F3F4F6;
+  --primary-text-color:       #2f353d;
   --secondary-text-color:     rgba(18,24,33,0.54);
   --disabled-text-color:      rgba(18,24,33,0.38);
   --divider-color:            rgba(18,24,33,0.12);
@@ -17,7 +17,7 @@
 
   /*  header settings */
 
-  --header-background-color: #fff;
+  --header-background-color: #e4e7eb;
   --header-text-color: var(--primary-text-color);
   --header-border:{
     border-bottom: 1px solid var(--divider-color);
