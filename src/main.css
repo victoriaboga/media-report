@@ -33,7 +33,7 @@
 @import "side-nav/styles.css";
 
 @import "navigation/viewer-presentation.css";
-
+@import "somc-general/somc.css";
 
 /* layout styles*/
 * {
