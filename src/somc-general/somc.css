@@ -1,0 +1,205 @@
+/* ----- somc general ----- */
+
+/* --- matirial card common --- */
+
+/* material card title */
+div .material-card--title .projectName, div .material-card--title .projectCodeName{
+  color: #5787f4!important;
+  font-size: 24px!important;
+  padding-bottom: 10px;
+}
+/* no data for card message */
+.importantNote{
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -.012em;
+  line-height: 32px;
+  color: #D32521;
+  padding: 16px 8px;
+}
+
+.middleLevel .material-card{
+  min-width: 350px!important;
+  max-width: 480px;
+  height: 500px;
+}
+
+/* fix extra horizontal scroll */
+.middleLevel .material-card--content,.middleLevel .material-card--content .aggregatedTableContainer {
+  overflow-x: auto;
+}
+
+.middleLevel .reportal-table>thead>tr>td, .middleLevel .reportal-table>thead>tr>th{
+  white-space: nowrap;
+}
+
+/* --- hit list --- */
+
+.light-grey .hitlist-nav .hitlist-nav-prev.disabled, .light-grey .hitlist-nav .hitlist-nav-next.disabled{
+  color: white !important;
+}
+
+.hitlist .yui3-datatable-table{
+  border:none !important;
+}
+
+.hitlist th{
+  background-color: #f0f2f5!important;
+  border-left: 1px solid #fff;
+  font-size: 12px!important;
+  line-height: 12px!important;
+  padding: 8px!important;
+  vertical-align: bottom;
+  font-weight: normal!important;
+  background-image:none!important;
+}
+
+.hitlist thead tr th:first-child,.hitlist thead tr th:last-child,.hitlist tbody tr:last-child td:first-child,.hitlist tbody tr:last-child td:last-child{
+  -webkit-border-radius: 0px!important;
+  -moz-border-radius: 0px!important;
+  border-radius: 0px!important;
+}
+
+.hitlist td, .hitlist tbody tr:hover .yui3-datatable-cell{
+  font-size:13px !important;
+  padding: 2px 8px !important;
+  min-height: 24px;
+  line-height: 16px;
+  vertical-align: middle;
+  height: 32px;
+  border-bottom: 1px solid #e1e4e9 !important;
+  background-color: #ffffff!important;
+  background-image:none!important;
+}
+
+/*comment cell - ellipsis in hit list*/
+.commentCell{
+  max-height: 100px;
+  overflow-y: hidden;
+}
+
+.hitlist a, .hitlist .link, .hitlist a:active, .hitlist a:visited, .hitlist .link:active, .hitlist .link:visited {
+  color: #5887F5 !important;
+}
+
+.hitlistOpenTextHeader,.hitlistOpenTextHeader div{
+  white-space:normal !important;
+  width:250px;
+}
+
+.hitlist-big {
+  width: 95% !important;
+  overflow-x: scroll;
+  margin: auto;
+  margin-top: 8px;
+  padding:10px;
+}
+
+
+/* top level */
+table.table_top5 td {
+  border-bottom: dashed 1px #F8CBAC !important;
+  padding: 10px;
+}
+table.table_top5 {
+  margin: 0 auto 10px auto;
+  width: 600px;
+  font-size: 14px;
+}
+.label_top5{
+  text-align: center;
+  font-size: 16px;
+  color: #ED7D31;
+}
+input.margin-top-8px[type="button"]{
+  margin-top: 8px !important;
+}
+
+
+
+/* ----- middle level -----*/
+
+.middleLevelResponses .material-section{
+  max-width:90%;
+}
+
+/* tables inside matirial cards on middle level */
+.middleLevel .material-card--content .reportal-hierarchy-table tbody tr td:first-child{
+  cursor:pointer;
+}
+.middleLevel .material-card--content .reportal-hierarchy-table .reportal-row-label:hover{
+  color:#4F73F1;
+}
+.reportal-hierarchical-header span{
+  top:5px;
+}
+
+/* help elements on middle level page */
+#MiddleLevel_drilldownProjectInput, #MiddleLevel_drilldownSubmitBtn, #mn_hitlist{
+  position: absolute;
+  left:-9000px;
+  visibility:hidden;
+}
+
+
+
+/* --- management note styles --- */
+.reportal-hierarchy-table tr.level1>td.reportal-hierarchical-cell{
+  position:relative;
+}
+.hasSymptomsWithNotes::after{
+  content: '!';
+  color: red;
+  font-size: larger;
+  font-weight: bold;
+}
+.mnContent{
+  visibility: hidden;
+  position: absolute;
+  left: 100px;
+  bottom:10px;
+  max-width: 300px;
+  color:#fff;
+  background-color: #4D8FDF;
+  border-radius: 5px;
+  padding: 5px;
+  white-space: normal;
+  z-index:20;
+}
+.thumbnail{
+  position:relative;
+  z-index: 10;
+}
+.thumbnail::after {
+  content: '*';
+  color: red;
+  font-size: larger;
+  font-weight: bold;
+}
+.thumbnail:hover+.mnContent {
+  visibility: visible;
+}
+
+
+/* ----- 3rd level chart ----- */
+
+#symptomDeatilsChart{
+  max-width: 90%;
+  width:60%;
+  padding: 15px;
+  margin:10px auto;
+  overflow-x:scroll;
+}
+.date-picker > span > span > img {
+  margin: 0px 8px !important;
+  vertical-align: middle !important;
+  height: 20px;
+}
+.filter-above-hitlist{
+  width: 95%;
+  width: -webkit-calc(95% - 20px);
+  width: -moz-calc(95% - 20px);
+  width: calc(95% - 20px);
+  margin-left: auto;
+  margin-right: auto;
+}
