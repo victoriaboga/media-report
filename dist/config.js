@@ -9,6 +9,9 @@ class Config {
 		lightAccentColor: "#42d641",
 		primaryBackgroundColor: "#F3F4F6",
 		primaryTextColor: "#2f353d",
+		buttonTextColor: "#FFFFFF",
+		buttonHoverColor: "#4572ed",
+		buttonMainColor: "#5887f5",
 		headerBackgroundColor: "#e4e7eb",
 		headerTextColor: "#2f353d"
 	}
@@ -25,6 +28,9 @@ var defaultAccentColor = Config.Design.defaultAccentColor;
 var lightAccentColor = Config.Design.lightAccentColor;
 var primaryBackgroundColor = Config.Design.primaryBackgroundColor;
 var primaryTextColor = Config.Design.primaryTextColor;
+var buttonTextColor = Config.Design.buttonTextColor;
+var buttonHoverColor = Config.Design.buttonHoverColor;
+var buttonMainColor = Config.Design.buttonMainColor;
 var headerBackgroundColor = Config.Design.headerBackgroundColor;
 var headerTextColor = Config.Design.headerTextColor || Config.Design.primaryTextColor;
 
@@ -33,6 +39,7 @@ var str = "<style>";
 str += ".materialButton.accent {color: " + textPrimaryColor + 
 "\n;}.materialButton.flat {color: " + primaryTextColor + 
 "\n;}.material-card--title, .material-card--title *,.reportal-button,.reportal-button:hover,.reportal-tabbed-menu>.yui3-menu .css-menu-subitem.css-menu-selected>a {color: " + primaryTextColor + 
+"\n !important;}.yui-calcontainer>table td.calcell.calcellhover>a {background: " + primaryTextColor + 
 "\n !important;}.fc-container .fc-apply-button {background-color: " + defaultAccentColor + 
 "\n !important;}.select2-drop>.select2-results .select2-highlighted {background: " + defaultAccentColor + 
 "\n !important;}.fc-container .fc-apply-button {color: " + textPrimaryColor + 
@@ -54,7 +61,12 @@ str += ".materialButton.accent {color: " + textPrimaryColor +
 "\n !important;}.dd-button-select:active,  .dd-button-select:hover {background: " + darkPrimaryColor + 
 "\n !important;}a.dd-cancel {color: " + primaryTextColor + 
 "\n !important;}.dd-selected a .dd-item-text {background-color: " + lightPrimaryColor + 
-"\n;}.reportal-horizontal-menu>.yui3-menu .css-menu-topitem:hover,    .reportal-horizontal-menu>.yui3-menu .css-menu-topitem.css-menu-selected {background: " + primaryBackgroundColor + 
+"\n;}.yui-calcontainer>table .calnavleft:before, .yui-calcontainer>table .calnavright:before {border: 1px solid " + buttonMainColor + 
+"\n;}.yui-calcontainer>table td.calcell.today>a,.yui-calcontainer>table td.calcell.selected>a,.yui-calcontainer>table .calnav:hover,.yui-calcontainer .yui-cal-nav-b>.yui-cal-nav-btn.yui-default {background: " + buttonMainColor + 
+"\n !important;}.yui-calcontainer>table td.calcell.selected>a,.yui-calcontainer>table .calnav,.yui-calcontainer>table .calnav:hover {color: " + buttonTextColor + 
+"\n !important;}.yui-calcontainer>table .calnav,.yui-calcontainer .yui-cal-nav-b>.yui-cal-nav-btn {background: " + lightPrimaryColor + 
+"\n !important;}.yui-calcontainer .yui-cal-nav-b>.yui-cal-nav-btn.yui-default:hover {background: " + buttonHoverColor + 
+"\n !important;}.reportal-horizontal-menu>.yui3-menu .css-menu-topitem:hover,    .reportal-horizontal-menu>.yui3-menu .css-menu-topitem.css-menu-selected {background: " + primaryBackgroundColor + 
 "\n !important;}.reportal-tabbed-menu>.yui3-menu .css-menu-subitem.css-menu-selected>a,.reportal-tabbed-menu>.yui3-menu .css-menu-subitem.yui3-menuitem-active,    .reportal-tabbed-menu>.yui3-menu .css-menu-subitem.yui3-menu-label-active,.reportal-tabbed-menu>.yui3-menu .css-menu-subitem>.yui3-menu-label.css-menu-sublabel:hover {background-color: " + defaultPrimaryColor + 
 "\n !important;}.reportal-select select:active,    .reportal-select select:focus {border-bottom-color: " + defaultPrimaryColor + 
 "\n !important;}.reportal-tabbed-menu>.yui3-menu .css-menu-subitem.yui3-menuitem-active>a, .reportal-tabbed-menu>.yui3-menu .css-menu-subitem.yui3-menu-label-active>a {color: " + textPrimaryColor + 

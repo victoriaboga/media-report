@@ -20,7 +20,7 @@
 @import "paper-styles/reportal-button.css";
 @import "paper-styles/material-table.css";
 @import "hierarchy/hierarchy.css";
-
+@import "date-picker/reportal-datepicker.css";
 
 @import "navigation/admin-menu.css";
 @import "navigation/reportal-menu.css";

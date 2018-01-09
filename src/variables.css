@@ -14,7 +14,9 @@
   --disabled-text-color:      rgba(18,24,33,0.38);
   --divider-color:            rgba(18,24,33,0.12);
   --light-divider-color:      rgba(18,24,33,0.06);
-
+  --button-text-color:    #FFFFFF;
+  --button-hover-color:   #4572ed;
+  --button-main-color:    #5887f5;
   /*  header settings */
 
   --header-background-color: #e4e7eb;

@@ -108,7 +108,7 @@
     background: var(--light-primary-color) !important;
     transition: background 0.3s ease-in-out;
     padding: 6px 8px !important;
-    color: var(--secondary-text-color) !important;
+    color: var(--button-text-color) !important;
 &:hover{
    background:var(--button-main-color) !important;
    color:var(--button-text-color) !important;

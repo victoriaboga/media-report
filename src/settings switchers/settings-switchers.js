@@ -7,6 +7,8 @@ var inputLists = [[["Rolling average", "Number of hits"], ["Category", "Symptom"
 */
 function SetChartSettingsCheckers(inputHeaders,inputLists) {
   /*Config*/
+  var checkedDiv = {"backgroundColor":"#5787f4", "textColor": "#ffffff", "outerCircleColor":"#ffffff", "outerCircleFill":"transparent", "innerCircleColor":"#ffffff"};
+  var uncheckedDiv = {"backgroundColor":"#ffffff", "textColor": "#000000", "outerCircleColor":"#ffffff", "outerCircleFill":"transparent", "innerCircleColor":"#ffffff"};
   var checkedDivBackgroundColor = "#5787f4";
   var uncheckedDivBackgroundColor = "#ffffff";
 
@@ -31,7 +33,7 @@ function SetChartSettingsCheckers(inputHeaders,inputLists) {
   /*EndConfig*/
 
   //var listInput = document.getElementById(listInputId);
-  var listInput = document.getElementsByClassName(listInputClass)[0];
+  var listInput = document.getElementsByClassName(listInputClass)[0].children[0].children[0];
   var mainContainer = document.getElementsByClassName(containerClassName);
   var numberOfListInDiv = listInput.getAttribute("value").split(delimiterForStatesOfDifferentPairs);
   var inputTextI = listInput.getAttribute("value");
@@ -48,32 +50,34 @@ function SetChartSettingsCheckers(inputHeaders,inputLists) {
 
       for (var i = 0; i < inputHeaders[0].length; i++) {
         var divButtonList = createButtonList(i);
-        var divButtonListHeader = createHeaderForButtonList(i);
+        var divButtonListHeader = createHeaderForButtonList(i, inputHeaders);
 
         outerContainer.appendChild(divButtonList);
         divButtonList.appendChild(divButtonListHeader);
 
         for (var j = 0; j < inputLists[0][i].length; j++) {
-          var buttonValueIndex = createButtonValueIndex(j);
-          var buttonIdIndex = createButtonIdIndex(i, j);
+          var buttonValueIndex = createButtonValueIndex(j, pairsOfListsCount);
+          var buttonIdIndex = createButtonIdIndex(i, j, pairsOfListsCount);
 
           var divRadioBlue = createDivForButtonAndLabel(buttonIdIndex);
           var inputRadioBlue = createButtonForList(i, l, buttonValueIndex, buttonIdIndex);
-          var labelForRadioBlue = createLabelForButtonInList(i, j);
+          var labelForRadioBlue = createLabelForButtonInList(i, j, buttonIdIndex, customButtonAppearance, inputLists);
 
           inputTextI = listInput.getAttribute("value");
           separatedInputTextI = inputTextI.split(delimiterForStatesOfDifferentPairs);
 
-          checkButtonsOnInitialPositions(i, j, inputRadioBlue, divRadioBlue);
+          checkButtonsOnInitialPositions(i, j, inputRadioBlue, divRadioBlue, separatedInputTextI, pairsOfListsCount, delimiterForStatesInOnePair, checkedDivBackgroundColor);
 
           divButtonList.appendChild(divRadioBlue);
           divRadioBlue.appendChild(inputRadioBlue);
           divRadioBlue.appendChild(labelForRadioBlue);
 
 
-          applyStylesForAllButtonsInLists(separatedInputTextI, i, divRadioBlue, labelForRadioBlue);
+          applyStylesForAllButtonsInLists(separatedInputTextI, i, divRadioBlue, labelForRadioBlue, pairsOfListsCount, delimiterForStatesInOnePair, outerCircleStrokeForCheckedButtonsColor, outerCircleFillForCheckedButtonsColor, innerCircleFillForCheckedButtonsColor,
+            textOnCheckedButtonsColor, outerCircleStrokeForUncheckedButtonsColor, innerCircleFillForUncheckedButtonsColor,textOnUncheckedButtonsColor, j);
 
-          inputRadioBlue.addEventListener("click", handleButtonClick);
+          inputRadioBlue.addEventListener("click", function(){handleButtonClick(delimiterForStatesInOnePair, buttonToClickClass, delimiterForStatesOfDifferentPairs, this, uncheckedDivBackgroundColor, checkedDivBackgroundColor, outerCircleStrokeForCheckedButtonsColor, outerCircleFillForCheckedButtonsColor, innerCircleFillForCheckedButtonsColor, outerCircleStrokeForUncheckedButtonsColor,
+            outerCircleFillForUncheckedButtonsColor, innerCircleFillForUncheckedButtonsColor, textOnUncheckedButtonsColor);}, false);
         }
       }
     }
@@ -91,18 +95,18 @@ function createButtonList(numberOfListInPair) {
   return divButtonList;
 }
 
-function createHeaderForButtonList(numberOfListInPair) {
+function createHeaderForButtonList(numberOfListInPair, inputHeaders) {
   var divButtonListHeader = document.createElement('div');
   divButtonListHeader.className = "btnListHeader";
   divButtonListHeader.innerHTML = inputHeaders[0][numberOfListInPair];
   return divButtonListHeader;
 }
 
-function createButtonValueIndex(numberOfButtonInList) {
+function createButtonValueIndex(numberOfButtonInList, pairsOfListsCount) {
   return 'r' + '_' + (numberOfButtonInList + 1) + '_' + (pairsOfListsCount + 1);
 }
 
-function createButtonIdIndex(numberOfListInPair, numberOfButtonInList) {
+function createButtonIdIndex(numberOfListInPair, numberOfButtonInList, pairsOfListsCount) {
   return 'r' + '_' + (numberOfListInPair + 1) + '_' + (numberOfButtonInList + 1) + '_' + (pairsOfListsCount + 1);
 }
 
@@ -128,7 +132,7 @@ function createButtonForList(numberOfListInPair, numberOfCard, buttonValue, butt
   return inputRadioBlue;
 }
 
-function createLabelForButtonInList(numberOfListInPair, numberOfButtonInList) {
+function createLabelForButtonInList(numberOfListInPair, numberOfButtonInList, buttonIdIndex, customButtonAppearance, inputLists ) {
   var labelForRadioBlue = document.createElement('label');
   labelForRadioBlue.className = buttonIdIndex + "label";
   labelForRadioBlue.setAttribute("for", buttonIdIndex);
@@ -138,14 +142,15 @@ function createLabelForButtonInList(numberOfListInPair, numberOfButtonInList) {
   return labelForRadioBlue;
 }
 
-function checkButtonsOnInitialPositions(numberOfListInPair, numberOfButtonInList, currentButton, divForCurrentButton) {
+function checkButtonsOnInitialPositions(numberOfListInPair, numberOfButtonInList, currentButton, divForCurrentButton, separatedInputTextI, pairsOfListsCount, delimiterForStatesInOnePair, checkedDivBackgroundColor) {
   if (numberOfButtonInList == separatedInputTextI[pairsOfListsCount].split(delimiterForStatesInOnePair)[numberOfListInPair]) {
     currentButton.setAttribute("checked", "true");
     divForCurrentButton.style.backgroundColor = checkedDivBackgroundColor;
   }
 }
 
-function applyStylesForAllButtonsInLists(separatedInputTextI, numberOfListInPair, currentDiv, currentLabel) {
+function applyStylesForAllButtonsInLists(separatedInputTextI, numberOfListInPair, currentDiv, currentLabel, pairsOfListsCount, delimiterForStatesInOnePair, outerCircleStrokeForCheckedButtonsColor, outerCircleFillForCheckedButtonsColor,
+                                         innerCircleFillForCheckedButtonsColor, textOnCheckedButtonsColor, outerCircleStrokeForUncheckedButtonsColor, outerCircleFillForUncheckedButtonsColor, innerCircleFillForUncheckedButtonsColor,textOnUncheckedButtonsColor, j ) {
   if (j == separatedInputTextI[pairsOfListsCount].split(delimiterForStatesInOnePair)[numberOfListInPair]) {
     applyStyleForOneButton(currentDiv, currentLabel, outerCircleStrokeForCheckedButtonsColor, outerCircleFillForCheckedButtonsColor, innerCircleFillForCheckedButtonsColor, textOnCheckedButtonsColor);
   }
@@ -165,8 +170,9 @@ function applyStyleForOneButton(currentDiv, currentLabel, outerCircleStrokeColor
 }
 
 
-function handleButtonClick() {
-  var currentButtonId = this.getAttribute("id");
+function handleButtonClick(delimiterForStatesInOnePair, buttonToClickClass, delimiterForStatesOfDifferentPairs, button,  uncheckedDivBackgroundColor, checkedDivBackgroundColor, outerCircleStrokeForCheckedButtonsColor, outerCircleFillForCheckedButtonsColor, innerCircleFillForCheckedButtonsColor, outerCircleStrokeForUncheckedButtonsColor,
+                           outerCircleFillForUncheckedButtonsColor, innerCircleFillForUncheckedButtonsColor, textOnUncheckedButtonsColor) {
+  var currentButtonId = button.getAttribute("id");
   var divToChange = document.getElementById("div" + currentButtonId);
   var currentButton = document.getElementById(currentButtonId);
   var currentList = divToChange.parentNode;
@@ -176,7 +182,8 @@ function handleButtonClick() {
   var previousDivToChange = document.getElementById(divChosenPreviouslyId);
 
   if (divChosenPreviouslyId.substring(3) !== currentButtonId) {
-    changeDivStyleOnClick(previousDivToChange, divToChange);
+    changeDivStyleOnClick(previousDivToChange, divToChange, uncheckedDivBackgroundColor, checkedDivBackgroundColor, outerCircleStrokeForCheckedButtonsColor, outerCircleFillForCheckedButtonsColor, innerCircleFillForCheckedButtonsColor, outerCircleStrokeForUncheckedButtonsColor,
+      outerCircleFillForUncheckedButtonsColor, innerCircleFillForUncheckedButtonsColor);
 
     var outerCircle = divToChange.getElementsByClassName("outerBlueCircle");
     var innerCircle = divToChange.getElementsByClassName("innerBlueCircle");
@@ -188,7 +195,7 @@ function handleButtonClick() {
     var previousButtonId = divChosenPreviouslyId.substring(3);
     var currentLabelToChange = divToChange.getElementsByClassName(currentButtonId + 'label');
     var previousLabelToChange = previousDivToChange.getElementsByClassName(previousButtonId + 'label');
-    changeLabelStyleOnClick(currentLabelToChange[0], previousLabelToChange[0]);
+    changeLabelStyleOnClick(currentLabelToChange[0], previousLabelToChange[0],uncheckedDivBackgroundColor,textOnUncheckedButtonsColor );
 
     var separateButtonIndexForPosition = currentButtonId.split('_');
     var currentButtonPosition = [separateButtonIndexForPosition[1], separateButtonIndexForPosition[2], separateButtonIndexForPosition[3]];
@@ -196,11 +203,10 @@ function handleButtonClick() {
     var inputText = listInput.getAttribute("value");
     var separatedInputText = inputText.split(delimiterForStatesInOnePair);
 
-    var newInputText = changeInputTextOnClick(separatedInputText, currentButtonPosition);
+    var newInputText = changeInputTextOnClick(separatedInputText, currentButtonPosition, delimiterForStatesInOnePair, delimiterForStatesOfDifferentPairs);
 
     listInput.setAttribute("value", newInputText);
     var buttonToClick = document.getElementsByClassName(buttonToClickClass)[0];
-    viewmode.showWait();
     buttonToClick.click();
   }
 }
@@ -217,12 +223,14 @@ function findWhichButtonWasCheckedBeforeClick(divsInCurrentList) {
   return result;
 }
 
-function changeDivStyleOnClick(previousDivToChange, divToChange) {
+function changeDivStyleOnClick(previousDivToChange, divToChange, uncheckedDivBackgroundColor, checkedDivBackgroundColor) {
   previousDivToChange.style.backgroundColor = uncheckedDivBackgroundColor;
   divToChange.style.backgroundColor = checkedDivBackgroundColor;
 }
 
-function changeButtonStyleOnClick(outerCircle, innerCircle, previousOuterCircle, previousInnerCircle) {
+function changeButtonStyleOnClick(outerCircle, innerCircle, previousOuterCircle, previousInnerCircle,
+                                  outerCircleStrokeForCheckedButtonsColor, outerCircleFillForCheckedButtonsColor, innerCircleFillForCheckedButtonsColor, outerCircleStrokeForUncheckedButtonsColor,
+                                  outerCircleFillForUncheckedButtonsColor, innerCircleFillForUncheckedButtonsColor) {
   outerCircle[0].style.stroke = outerCircleStrokeForCheckedButtonsColor;
   outerCircle[0].style.fill = outerCircleFillForCheckedButtonsColor;
   innerCircle[0].style.fill = innerCircleFillForCheckedButtonsColor;
@@ -231,12 +239,12 @@ function changeButtonStyleOnClick(outerCircle, innerCircle, previousOuterCircle,
   previousInnerCircle[0].style.fill = innerCircleFillForUncheckedButtonsColor;
 }
 
-function changeLabelStyleOnClick(currentLabelToChange, previousLabelToChange) {
+function changeLabelStyleOnClick(currentLabelToChange, previousLabelToChange, uncheckedDivBackgroundColor,textOnUncheckedButtonsColor ) {
   currentLabelToChange.style.color = uncheckedDivBackgroundColor;
   previousLabelToChange.style.color = textOnUncheckedButtonsColor;
 }
 
-function changeInputTextOnClick(separatedInputText, currentButtonPosition) {
+function changeInputTextOnClick(separatedInputText, currentButtonPosition, delimiterForStatesInOnePair, delimiterForStatesOfDifferentPairs) {
   var result = '';
   for (var j = 0; j < separatedInputText.length; j++) {
     var separatedInputForEachPair = separatedInputText[j].split(delimiterForStatesInOnePair);
