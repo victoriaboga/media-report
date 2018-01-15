@@ -9,7 +9,6 @@
 // - adds drill down functionality
 // - add Managemnt Notes functionality
 
-
 //upgradeHierarchyTable - creates fancy hierarchy style
 //based on https://github.com/ConfirmitASA/r-table-hierarchy.git
 function upgradeHierarchyTable(table, headers){
