@@ -1,0 +1,61 @@
+.card-parameters {
+  text-align: center;
+}
+.outerContainer {
+  display: inline-block;
+}
+
+.buttonList {
+  float: left;
+}
+
+.leftList {
+  margin-left: 50px;
+}
+
+.rightList {
+  margin-left: 20px;
+}
+
+.radiobutton-blue {
+  background-color: #ffffff;
+  border: 2px solid #5787f4;
+  padding: 0 10px 10px 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.radiobutton-blue input[type='radio'] {
+  display: none;
+}
+
+.radiobutton-blue input[type='radio'] + label {
+  margin-bottom: 30px;
+}
+
+.btnListHeader {
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.radioBtnReplacement {
+  width: 20px;
+  height: 20px;
+}
+
+.outerBlueCircle {
+  cx: 50%;
+  cy: 70%;
+  stroke-width: 2px;
+}
+
+.innerBlueCircle {
+  cx: 50%;
+  cy: 70%;
+}
+
+.listInput {
+  float: right;
+  margin-bottom: 20px;
+}

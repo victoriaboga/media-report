@@ -21,6 +21,7 @@
 @import "paper-styles/material-table.css";
 @import "hierarchy/hierarchy.css";
 @import "date-picker/reportal-datepicker.css";
+@import "settings switchers/settings-switchers-styles.css";
 
 @import "navigation/admin-menu.css";
 @import "navigation/reportal-menu.css";
