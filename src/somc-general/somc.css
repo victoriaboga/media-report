@@ -93,7 +93,7 @@ div .material-card--title .projectName, div .material-card--title .projectCodeNa
 
 /* duplicate Comment Flag for Symptom Overview - Details*/
 
-td.duplicatedComment, .hitlist tbody tr:hover td.duplicatedComment {
+.hitlist td.duplicatedComment, .hitlist tbody tr:hover td.duplicatedComment {
   background-image: url(https://author.euro.confirmit.com/isa/JYDKCRIMNTAMGPHIJDNQMHPQGIIFEFJD/flag.PNG)!important;
   background-repeat: no-repeat;
   background-position: center;
