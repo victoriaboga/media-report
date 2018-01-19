@@ -91,14 +91,6 @@ div .material-card--title .projectName, div .material-card--title .projectCodeNa
   overflow-y: hidden;
 }
 
-/* duplicate Comment Flag for Symptom Overview - Details*/
-
-.hitlist td.duplicatedComment, .hitlist tbody tr:hover td.duplicatedComment {
-  background-image: url(https://author.euro.confirmit.com/isa/JYDKCRIMNTAMGPHIJDNQMHPQGIIFEFJD/flag.PNG)!important;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .hitlist a, .hitlist .link, .hitlist a:active, .hitlist a:visited, .hitlist .link:active, .hitlist .link:visited {
   color: #5887F5 !important;
 }
