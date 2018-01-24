@@ -3,11 +3,19 @@
 /* --- matirial card common --- */
 
 /* material card title */
+
+.material-card .material-card--title, .material-card .material-card--title *{
+  color: #5787f4!important;
+  font-size: 24px!important;
+  padding-bottom: 10px;
+}
+/*
 div .material-card--title .projectName, div .material-card--title .projectCodeName{
   color: #5787f4!important;
   font-size: 24px!important;
   padding-bottom: 10px;
 }
+*/
 /* no data for card message */
 .importantNote{
   font-size: 16px;

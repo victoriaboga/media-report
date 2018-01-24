@@ -20,8 +20,8 @@ function upgradeHierarchyTable(table, headers){
         rowheaders: headers, // current table's headers (object generated with reportal scripting)
         search:{enabled: true},
         clearLinks:false,
-        sorting:{enabled:true},
-        floatingHeader:{enabled:false} // behaves aggressive when many rows
+        floatingHeader:{enabled:true}, // behaves aggressive when many rows,
+        sorting:{enabled:true}
       }
     )
   }
