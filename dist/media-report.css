@@ -2493,6 +2493,17 @@ div .material-card--title .projectName, div .material-card--title .projectCodeNa
   border: #E2E2E2 1px solid;
 }.explanatoryNote div{
   color:#d32521;
+}.info-note{
+  padding: 25px;
+  width: 250px;
+  border-left: 1px solid #bdc0c3;
+  margin-left: 20px;
+}.info-note::before {
+  content: "Note";
+  display: block;
+  color: #4572ed;
+  font-weight: bold;
+  margin-bottom: 5px;
 }.middleLevel .material-card{
   min-width: 350px!important;
   max-width: 480px;
@@ -2556,7 +2567,14 @@ div .material-card--title .projectName, div .material-card--title .projectCodeNa
   margin-top: 8px !important;
 }/* ----- middle level -----*/.middleLevelResponses .material-section{
   max-width:90%;
-}/* tables inside matirial cards on middle level */.middleLevel .material-card--content .reportal-hierarchy-table tbody tr td:first-child{
+}/* tables inside matirial cards on middle level */.middleLevel .material-card .reportal-hierarchy-table thead td{
+  position: -webkit-sticky;
+  position: sticky;
+  display: table-cell;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}.middleLevel .material-card--content .reportal-hierarchy-table tbody tr td:first-child{
   cursor:pointer;
 }.middleLevel .material-card--content .reportal-hierarchy-table .reportal-row-label:hover{
   color:#4F73F1;
